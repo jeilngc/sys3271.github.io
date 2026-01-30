@@ -36,6 +36,11 @@ const BH_REF_START = new Date(2026, 0, 6, 0, 0, 0, 0).getTime();
 //    • 
 const ANNOUNCEMENTS = [
     {
+        id: 27,
+        message: "EVENT for 01/30 Fri\n\n• Bearhunt\n\n• Stronghold/Fortress \n• SVS Prep Final Day", 
+        date: "2026-01-30"
+    },
+    {
         id: 26,
         message: "EVENT for 01/26 Sun\n\n• SVS Prep\n• Bearhunt\n\n• Office Project Last day\n• Flame and Fangs", 
         date: "2026-01-26"
