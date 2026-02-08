@@ -37,7 +37,7 @@ const BH_REF_START = new Date(2026, 0, 6, 0, 0, 0, 0).getTime();
 const ANNOUNCEMENTS = [
     {
         id: 28,
-        message: "EVENT for 02/08 Sun\n\n• Foundry Battle L1 & L2\n\n• Mercenary Prestige - Day 2 \n• Office Project\n\nFlame and Fangs to Tommorow Do the prep to maximize Rewards", 
+        message: "EVENT for 02/08 Sun\n\n• Foundry Battle L1 & L2\n\n• Mercenary Prestige - Day 2 \n• Office Project\n\nFlame and Fangs Tommorow(Monday) Do the prep to maximize Rewards", 
         date: "2026-02-08"
     },
     {
