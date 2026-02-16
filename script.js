@@ -38,7 +38,7 @@ const ANNOUNCEMENTS = [
     {
         id: 29,
         message: "EVENT for 02/16 Mon\n\n• Canyon Clash Voting Time slot\n• Foundry battle Time slot voting\n• Alliance Championship Registration\n• Alliance Mobilization\n\n• Armanent Competition", 
-        date: "2026-02-08"
+        date: "2026-02-16"
     },
     {
         id: 28,
