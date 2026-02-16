@@ -36,6 +36,11 @@ const BH_REF_START = new Date(2026, 0, 6, 0, 0, 0, 0).getTime();
 //    • 
 const ANNOUNCEMENTS = [
     {
+        id: 29,
+        message: "EVENT for 02/16 Mon\n\n• Canyon Clash Voting Time slot\n• Foundry battle Time slot voting\n• Alliance Championship Registration\n• Alliance Mobilization\n\n• Armanent Competition", 
+        date: "2026-02-08"
+    },
+    {
         id: 28,
         message: "EVENT for 02/08 Sun\n\n• Foundry Battle L1 & L2\n\n• Mercenary Prestige - Day 2 \n• Office Project\n\nFlame and Fangs Tommorow(Monday) Do the prep to maximize Rewards", 
         date: "2026-02-08"
