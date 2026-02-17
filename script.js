@@ -35,6 +35,11 @@ const HUNT_WINDOW = 24 * 60 * 60 * 1000;
 const BH_REF_START = new Date(2026, 0, 6, 0, 0, 0, 0).getTime();
 //    • 
 const ANNOUNCEMENTS = [
+     {
+        id: 30,
+        message: "EVENT for 02/17 Tue\n\n• Bearhunt\n\n• Canyon Clash Voting Time slot\n• Foundry battle Time slot voting\n• Alliance Championship Registration\n• Alliance Mobilization\n\n• Armanent Competition\n• Fishing Tournament", 
+        date: "2026-02-17"
+    },
     {
         id: 29,
         message: "EVENT for 02/16 Mon\n\n• Canyon Clash Voting Time slot\n• Foundry battle Time slot voting\n• Alliance Championship Registration\n• Alliance Mobilization\n\n• Armanent Competition", 
