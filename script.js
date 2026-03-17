@@ -37,7 +37,11 @@ const BH_REF_START = new Date(2026, 0, 6, 0, 0, 0, 0).getTime();
 const ANNOUNCEMENTS = [
 
 
-    
+    {
+    id: 33,
+    message: "EVENTS FOR TODAY:\n\n• Alliance Mobilization\n\n• Fishing tournament\n• Office Project\n• Hero's Mission (Philly)\n\nThank you",
+    date: "2026-03-18"
+},
     {
         id: 32,
         message: "EVENTS FOR TODAY:\n\n• BT1 - 8pm PHT(12utc)\n• BT2 - 12pm PHT (4utc)\n\n• Remember to vote and register to alliance events (same guide as yesterday)\nLAST DAY: Tundra Trading, Armament\nThank you", 
