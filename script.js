@@ -35,6 +35,23 @@ const HUNT_WINDOW = 24 * 60 * 60 * 1000;
 const BH_REF_START = new Date(2026, 0, 6, 0, 0, 0, 0).getTime();
 //    • 
 const ANNOUNCEMENTS = [
+
+
+    
+    {
+        id: 31,
+        message: "EVENTS FOR TODAY:
+
+/n/n• BT1 - 8pm PHT (12utc)
+/n• BT2 - 12pm PHT (4utc)
+
+/n/n• Remember to vote and register to alliance events (same guide as yesterday)
+
+/nLAST DAY: Tundra Trading, Armament
+
+/nThank you ", 
+        date: "2026-03-17"
+    },
     {
         id: 31,
         message: "Hi SYS Member's!/n/nI apologize for this website may not able to receive Daily updates temporarily- Although you can still use the bearhunt checker", 
