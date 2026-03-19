@@ -36,7 +36,11 @@ const BH_REF_START = new Date(2026, 0, 6, 0, 0, 0, 0).getTime();
 //    • 
 const ANNOUNCEMENTS = [
 
-
+{
+    id: 34,
+    message: "EVENTS FOR TODAY:\n\n• BT2 – 12pm PHT (4 UTC)\n• BT1 – 8pm PHT (12 UTC)\n\nLAST DAY:\n→ Lantern for Blessing (redeem all light up - blessing lantern)\n→ Fishing Tournament\n→ Officer Project\n\nThank you 😊",
+    date: "2026-03-19"
+},
     {
     id: 33,
     message: "EVENTS FOR TODAY:\n\n• Alliance Mobilization\n\n• Fishing tournament\n• Office Project\n• Hero's Mission (Philly)\n\nThank you",
