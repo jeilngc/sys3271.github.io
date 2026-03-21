@@ -39,7 +39,7 @@ const ANNOUNCEMENTS = [
 {
     id: 35,
     message: "EVENTS FOR TODAY:\n\n• BT2 – 12pm PHT (4 UTC)\n• BT1 – 9:05pm PHT (13:05 UTC)\n• Canyon Clash (Tonight)\n→ L1: 12 UTC (8pm PHT)\n→ L2: 14 UTC (10pm PHT)\n\n• SvS Matchmaking – Hold power, upgrade starting Monday\n• Mercenary Prestige, if no stamina request help.\n\nLAST DAY: Alliance Mobi. & Armament\n\nUPCOMING: (Tomorrow) Foundry L1 & L2",
-    date: "2026-03-20"
+    date: "2026-03-21"
 },
 {
     id: 34,
