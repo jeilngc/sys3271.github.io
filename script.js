@@ -37,6 +37,12 @@ const BH_REF_START = new Date(2026, 0, 6, 0, 0, 0, 0).getTime();
 const ANNOUNCEMENTS = [
 
 {
+    id: 36,
+    message: "EVENTS FOR TODAY:\n\n• Foundry:\n-> both L1 & L2 : 8pm PHT (12 UTC)\n\n• Flame & Fangs event - do intel today (follow the guide sent) to collect more crystallite cores tomorrow\n\n• Save for SvS Prep – Hold power/upgrade",
+    date: "2026-03-22"
+},
+
+{
     id: 35,
     message: "EVENTS FOR TODAY:\n\n• BT2 – 12pm PHT (4 UTC)\n• BT1 – 9:05pm PHT (13:05 UTC)\n• Canyon Clash (Tonight)\n→ L1: 12 UTC (8pm PHT)\n→ L2: 14 UTC (10pm PHT)\n\n• SvS Matchmaking – Hold power, upgrade starting Monday\n• Mercenary Prestige, if no stamina request help.\n\nLAST DAY: Alliance Mobi. & Armament\n\nUPCOMING: (Tomorrow) Foundry L1 & L2",
     date: "2026-03-21"
