@@ -2,7 +2,7 @@ const ANNOUNCEMENTS = [
 {
     id: 37,
     message: "EVENTS FOR TODAY:\n\n• BT2 – 12pm PHT (4 UTC)\n• BT1 – 8:40pm PHT (12:40 UTC)\n\n• Mercenary Captain - after BT1 please be online(active) later to claim rewards\n\n• SvS Prep Day 1 – Best to Use:\n→ Construction Speedups\n\nLAST DAY: Officer Project, Mercenary Prestige\n\nThank you",
-    date: "2026-03-24"
+    date: "2026-03-23"
 },
 {
     id: 36,
