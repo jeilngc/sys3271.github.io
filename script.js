@@ -1,41 +1,9 @@
-// R4 Officer Data - Much cleaner than HTML repetition
-const R4_OFFICERS = [
-    { name: "JEI", role: "Site Admin", icon: "code", color: "text-sys-gold" },
-    { name: "JOR", role: "War • Events", icon: "shield-halved", color: "text-red-400" },
-    { name: "Karbs", role: "War Commander", icon: "shield-halved", color: "text-red-400" },
-    { name: "NAILONGSKI", role: "Recruit • Events", icon: "bullhorn", color: "text-blue-400" },
-    { name: "LipBite", role: "Events & Comms", icon: "bullhorn", color: "text-slate-400" },
-    { name: "xGomx", role: "Recruit • Events", icon: "user-plus", color: "text-blue-400" },
-    { name: "MIRAI", role: "Diplomacy • Events", icon: "comments", color: "text-blue-400" },
-    { name: "YANI", role: "Diplomacy • Events", icon: "comments", color: "text-blue-400" },
-    { name: "KERINA", role: "War • Diplomacy", icon: "scroll", color: "text-slate-400", span: true }
-];
-
-function renderOfficers() {
-    const grid = document.getElementById('r4-grid');
-    if (!grid) return;
-    
-    grid.innerHTML = R4_OFFICERS.map(officer => `
-        <div class="glass-panel p-3 rounded-lg flex items-center gap-3 border border-gray-800 ${officer.span ? 'sm:col-span-2' : ''}">
-            <div class="w-10 h-10 rounded-full pfp-border-r4 bg-ice-mid flex-shrink-0 flex items-center justify-center text-slate-400">
-                <i class="fa-solid fa-${officer.icon} text-sm"></i>
-            </div>
-            <div>
-                <h4 class="font-heading text-sm text-white uppercase">${officer.name}</h4>
-                <p class="text-[9px] ${officer.color} uppercase font-bold">${officer.role}</p>
-            </div>
-        </div>
-    `).join('');
-}
-
-// --- Configuration & Constants ---
-const EVENT_DURATION = 30 * 60 * 1000;
-const CYCLE_TIME = 48 * 60 * 60 * 1000;
-const HUNT_WINDOW = 24 * 60 * 60 * 1000; 
-const BH_REF_START = new Date(2026, 0, 6, 0, 0, 0, 0).getTime();
-//    • 
 const ANNOUNCEMENTS = [
-
+{
+    id: 37,
+    message: "EVENTS FOR TODAY:\n\n• BT2 – 12pm PHT (4 UTC)\n• BT1 – 8:40pm PHT (12:40 UTC)\n\n• Mercenary Captain - after BT1 please be online(active) later to claim rewards\n\n• SvS Prep Day 1 – Best to Use:\n→ Construction Speedups\n\nLAST DAY: Officer Project, Mercenary Prestige\n\nThank you",
+    date: "2026-03-24"
+},
 {
     id: 36,
     message: "EVENTS FOR TODAY:\n\n• Foundry:\n-> both L1 & L2 : 8pm PHT (12 UTC)\n\n• Flame & Fangs event - do intel today (follow the guide sent) to collect more crystallite cores tomorrow\n\n• Save for SvS Prep – Hold power/upgrade",
@@ -71,182 +39,312 @@ const ANNOUNCEMENTS = [
         id: 30,
         message: "EVENT for 02/17 Tue\n\n• Bearhunt\n\n• Canyon Clash Voting Time slot\n• Foundry battle Time slot voting\n• Alliance Championship Registration\n• Alliance Mobilization\n\n• Armanent Competition\n• Fishing Tournament", 
         date: "2026-02-17"
-    },
-    {
-        id: 29,
-        message: "EVENT for 02/16 Mon\n\n• Canyon Clash Voting Time slot\n• Foundry battle Time slot voting\n• Alliance Championship Registration\n• Alliance Mobilization\n\n• Armanent Competition", 
-        date: "2026-02-16"
-    },
-    {
-        id: 28,
-        message: "EVENT for 02/08 Sun\n\n• Foundry Battle L1 & L2\n\n• Mercenary Prestige - Day 2 \n• Office Project\n\nFlame and Fangs Tommorow(Monday) Do the prep to maximize Rewards", 
-        date: "2026-02-08"
-    },
-    {
-        id: 27,
-        message: "EVENT for 01/30 Fri\n\n• Bearhunt\n\n• Stronghold/Fortress \n• SVS Prep Final Day", 
-        date: "2026-01-30"
-    },
-    {
-        id: 26,
-        message: "EVENT for 01/26 Sun\n\n• SVS Prep\n• Bearhunt\n\n• Office Project Last day\n• Flame and Fangs", 
-        date: "2026-01-26"
-    },
-    {
-        id: 25,
-        message: "EVENT for 01/25 Sun\n\n• Foundry Battle\n\n• Office Project\n• Tundra Adventure Last day Mission", 
-        date: "2026-01-25"
-    },
-    {
-        id: 25,
-        message: "EVENT for 01/24 Sat\n\n• Canyon Clash\n• Alliance Mobilization Last day\n\n• Armanent  Competition Last day\n• Tundra Adventure", 
-        date: "2026-01-24",
-        time: "8:00"
-    },
-    {
-        id: 24,
-        message: "NAP6 Update\n1.NAP is now reduced to NAP 6: SYS, 666, HxH, PNY, PRO, ONE.\n2. The current President will continue activating state-wide buffs\n3. Nap 6 can choose 2 Fortress and Stronghold is free for all. SH with FC is still rotated.\n4. The Supreme President will be based on SVS Preparation contribution.\n5.The normal Presidency will follow the NAP6 rotation and will skip the Supreme President.\n\nTomorrow 1/23, we will finalize:\n1. Castle Rotation\n2. Transfer Manager\nThank you all for your patience and cooperation", 
-        date: "2026-01-23",
-        time: "8:00"
-    },
-    {
-        id: 23,
-        message: "EVENT for 01/23 Fri\n\n• Alliance Mobilization\n\n• Armanent  Competition\n\n• Tundra Adventure\n• Gina's Revenge Day 2", 
-        date: "2026-01-23",
-        time: "8:00"
-    },
-    {
-        id: 22,
-        message: "EVENT for 01/22 Thur\n\n• BearHunt B1&2\n• Alliance Mobilization\n\nLast Day\n• Office Project\n• Fishing Tournament\n\n• Tundra Adventure\n• Gina's Revenge", 
-        date: "2026-01-22",
-        time: "8:00"
-    },
-    {
-        id: 21,
-        message: "EVENT for 01/21 Wed\n\n• Alliance Mobilization\n\n• Office Project\n• Tundra Adventure\n• Fishing Tournament\n• Gina's Revenge", 
-        date: "2026-01-21",
-        time: "8:00"
-    },
-    {
-        id: 20,
-        message: "EVENT for 01/20 Tue\n\n• Bearhunt\n• Alliance Mobilization\n• Alliance Championship last day Registration\n\n• Armanent Competition Last day\n• Tundra Adventure\n• Fishing Tournament", 
-        date: "2026-01-20",
-        time: "8:00"
-    },
-    {
-        id: 19,
-        message: "EVENT for 01/19 Mon\n\n• Alliance Mobilization\n• Mercenary Prestige - Boss\n\n• Armanent Competition", 
-        date: "2026-01-19",
-        time: "8:00"
-    },
-    {
-        id: 18,
-        message: "Sorry for the two days without update, your Site admin gotten busy and last sunday i touch some grass at the top of the mountain\n\n-Jei", 
-        date: "2026-01-19",
-        time: "8:00"
-    },
-    {
-        id: 17,
-        message: "EVENT for 01/17 Sat\n\n• King of Icefield Day 6\n- Combat Training\n\n• Brother In Arms - BIA\n• Mercenary Prestige\n\n• Castle Battle - UTC12 ", 
-        date: "2026-01-17",
-        time: "8:00"
-    },
-    {
-        id: 16,
-        message: "EVENT for 01/16 Fri\n\n• Bearhunt\n\n• King of Icefield Day 5\n- Basic Skiils up\n\n• Brother In Arms - BIA\n• Treasure Hunter/Warrant - Last Day", 
-        date: "2026-01-16",
-        time: "8:00"
-    },
-    {
-        id: 15,
-        message: "EVENT for 01/15 Thu\n\n• King of Icefield Day 4\n- Combat Training\n\n• Crazy Joe 13UTC\n• Lucky Wheel Last Day\n• Treasure Hunter/Warrant Day 2", 
-        date: "2026-01-15",
-        time: "8:00"
-    },
-    {
-        id: 14,
-        message: "EVENT for 01/14 Wed \n\n• King of Icefield Day 3\n\n• Defeat Nearby Beast -last day\n• Lucky Wheel Day 2\n• Treasure Hunter", 
-        date: "2026-01-14",
-        time: "8:00"
-    }, 
-    {
-        id: 13,
-        message: "EVENT for 01/13 Tue\n\n• King of Icefield Day 2\n• Alliance Championship Registration\n• Frost Fire\n• Defeat Nearby Beast\n• Lucky Wheel\n• Crazy Joe - 13UTC\n\n Last day of \n• Flame and fangs", 
-        date: "2026-01-13",
-        time: "8:00"
-    }, 
-    {
-        id: 12,
-        message: "Please give a warm welcome to our newest members. Squirrelly2!\n\nWe're thrilled to have you join the team", 
-        date: "2026-01-12",
-        time: "8:00"
-    },
-    {
-        id: 11,
-        message: "EVENT for 01/12 Mon\n\n• Bearhunt\n\nStart of\n• Flame and fangs\n• King of Icefield\n• Alliance Championship\n\n Last day of \n• Officer Project", 
-        date: "2026-01-12",
-        time: "8:00"
-    }, 
-    {
-        id: 10,
-        message: "Please give a warm welcome to our newest members, Shane, Xeno, Thirteen and Tashya Utami!\n\nWe're thrilled to have you join the team", 
-        date: "2026-01-11",
-        time: "8:00"
-    }, 
-    {
-        id: 9,
-        message: "EVENT FOR Jan 11\n\nStart of Office Project\n• Foundry Battle \n- Legion 1 _ UTC 12\n- Legion 2 _ UTC 14\n\nPrep For Flame and fangs Event", 
-        date: "2026-01-11",
-        time: "8:00"
-    }, 
-    {
-        id: 8,
-        message: "EVENT FOR Jan 10\n\nLast Day\n• Mia's Fortune Hut \n• Armament Competition\n\n• Alliance Showdown Day-6\n-Full scale Competition", 
-        date: "2026-01-10",
-        time: "8:00"
-    }, 
-    {
-        id: 7,
-        message: "Please give a warm welcome to our newest player, JustTrying2Play!\n\nWe're thrilled to have you join the team", 
-        date: "2026-01-10",
-        time: "8:00"
-    }, 
-    {
-        id: 6,
-        message: "Please give a warm welcome to our newest player, Pikachuu!\n\nWe're thrilled to have you join the team", 
-        date: "2026-01-09",
-        time: "8:00"
-    },  
-    {
-        id: 5,
-        message: "EVENT FOR Jan 9\n\n• Mia's Fortune Hut\n• Armament Competition\n\n• Alliance Showdown Day-5\n-Speed ups/ Chief Gear / Fire Crystal to upgrade Bldg", 
-        date: "2026-01-09",
-        time: "8:00"
-    },  
-    {
-        id: 4,
-        message: "EVENT FOR Jan 8\n\n• Bearhunt Day\n\n• Snowbuster Last day\n• Vision of Dawn Last day\n• Gina's Revenge Day 2\n\n• Alliance Showdown Day-4\n-Training Troops/ Chief charm / Hero Gear&widget.", 
-        date: "2026-01-08",
-        time: "8:00"
-    },    
-    {
-        id: 3,
-        message: "EVENT FOR Jan 7\n\n• Office Project\n• Snowbuster Day-2\n• Vision of dawn Day-2\n• Alliance Showdown Day-3\n-Pet adv. / Chief charm / Gathering\n\n• Gina's Revenge.", 
-        date: "2026-01-07",
-        time: "8:00"
-    },
-    {
-        id: 2,
-        message: "EVENTS FOR Jan 6\n• Register Alliance Champ\n• Vote – Foundry Battle\n• Alliance Showdown Day 1",
-        date: "2026-01-06"
-    },
-    { 
-        id: 1, 
-        message: "Happy New Year SYS!", 
-        date: "2026-01-01" 
     }
 ];
 let isShowingAll = false;
+// --- Gift codes ---
+const GIFT_CODES = [
+    { code: "jpholiday320", dateAdded: "2026-03-21" },
+    { code: "EidMubarak2026", dateAdded: "2026-03-20" },
+    { code: "OLD777", dateAdded: "2026-03-10" }
+];
+const ACHIEVEMENTS = [
+    {
+        id: 2,
+        title: "BEAR HUNT  DAMAGE BREAKTHROUGH",
+        description: "Smashed previous record with 10.6B damage in Bear Hunt BT1 session",
+        date: "2026-03-24",
+        category: "damage",
+        damage: "14.8B",                // <-- added
+        image: "img/achievements/bearhunt-record.jpg",
+        highlight: true
+    },
+    {
+        id: 1,
+        title: "ALLIANCE CHAMPIONSHIP",
+        description: "Our Alliance Ranked No. 3 in our group in round Diamond V",
+        date: "2026-03-20",
+        category: "events",
+        image: "img/achievements/championship.jpg"
+    },
+];
+
+let isShowingAllAchievements = false;
+
+// --- Achievements Data with Icon Mapping ---
+
+// Icon mapping by category
+const ACHIEVEMENT_ICONS = {
+    ranking: "trophy",
+    damage: "paw",
+    events: "medal",
+    war: "shield-halved",
+    diplomacy: "comments",
+    recruitment: "user-plus"
+};
+
+// Category display text mapping
+const CATEGORY_DISPLAY = {
+    ranking: "TOP RANKING",
+    damage: "DAMAGE RECORD",
+    events: "EVENT VICTORY",
+    war: "WAR ACHIEVEMENT",
+    diplomacy: "DIPLOMACY",
+    recruitment: "RECRUITMENT"
+};
+
+// Category color mapping
+const CATEGORY_COLORS = {
+    ranking: { text: "text-yellow-400", bg: "bg-yellow-500/20" },
+    damage: { text: "text-red-400", bg: "bg-red-500/20" },
+    events: { text: "text-blue-400", bg: "bg-blue-500/20" },
+    war: { text: "text-red-500", bg: "bg-red-600/20" },
+    diplomacy: { text: "text-green-400", bg: "bg-green-500/20" },
+    recruitment: { text: "text-purple-400", bg: "bg-purple-500/20" }
+};
+
+
+// Function to load achievements
+function loadAchievements() {
+    const wrapper = document.getElementById('achievement-wrapper');
+    const showMoreBtn = document.getElementById('achievement-more-btn');
+    const container = document.getElementById('achievement-more-container');
+    
+    if (!wrapper) return;
+    
+    wrapper.innerHTML = '';
+    
+    // Sort achievements by ID (newest first)
+    const sorted = [...ACHIEVEMENTS].sort((a, b) => b.id - a.id);
+    
+    sorted.forEach((achievement, index) => {
+        const achievementElement = document.createElement('div');
+        
+        const categoryColor = CATEGORY_COLORS[achievement.category] || CATEGORY_COLORS.events;
+        const icon = ACHIEVEMENT_ICONS[achievement.category] || "medal";
+        const displayText = CATEGORY_DISPLAY[achievement.category] || achievement.category.toUpperCase();
+        
+        const isHighlighted = achievement.highlight;
+        const borderClass = isHighlighted ? 'border-l-4 border-red-400' : `border-l-4 ${categoryColor.text}`;
+        const bgClass = isHighlighted ? 'from-red-500/5 to-red-500/10' : 'from-ice-mid to-ice-light';
+        
+        achievementElement.className = `bg-gradient-to-r ${bgClass} ${borderClass} rounded-r-lg p-4 shadow-lg transition-all hover:scale-[1.01]`;
+        
+        if (isHighlighted) {
+            achievementElement.classList.add('ring-1', 'ring-red-400/30');
+        }
+        
+        if (index > 2 && !isShowingAllAchievements) {
+            achievementElement.classList.add('hidden');
+        }
+        
+        const iconColor = isHighlighted ? "text-red-400 animate-pulse" : categoryColor.text;
+        const iconBg = isHighlighted ? 'bg-red-500/20' : 'bg-gray-500/10';
+        
+        // Build inner HTML
+        let innerHTML = `
+            <div class="flex items-start">
+                <div class="mr-4 flex-shrink-0 relative">
+                    <div class="w-12 h-12 rounded-full ${iconColor} ${iconBg} flex items-center justify-center">
+                        <i class="fa-solid fa-${icon} text-lg"></i>
+                        ${isHighlighted ? '<div class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-red-500 flex items-center justify-center"><i class="fa-solid fa-star text-[8px] text-white"></i></div>' : ''}
+                    </div>
+                </div>
+                
+                <div class="ml-3 w-full">
+                    <div class="flex justify-between items-center mb-1">
+                        <div class="flex items-center gap-2">
+                            <h3 class="text-[11px] font-bold ${isHighlighted ? 'text-red-400' : 'text-white'} uppercase tracking-widest">${achievement.title}</h3>
+                            <span class="text-[8px] px-2 py-0.5 rounded-full ${isHighlighted ? 'bg-red-500/30 text-red-400' : `${categoryColor.bg} ${categoryColor.text}`} font-bold uppercase">
+                                ${isHighlighted ? 'NEW RECORD!' : displayText}
+                            </span>
+                        </div>
+                        <span class="text-[9px] ${isHighlighted ? 'text-red-300' : 'text-gray-500'} font-bold uppercase">${getRelativeTime(achievement.date)}</span>
+                    </div>
+                    
+                    <p class="text-sm ${isHighlighted ? 'text-gray-200' : 'text-gray-300'} mb-3">${achievement.description}</p>
+        `;
+        
+        
+        // Damage Score Block (only for damage achievements)
+        if (achievement.category === "damage" && achievement.damage) {
+            innerHTML += `
+                <div class="mt-3 p-3 rounded-lg bg-gray-800/50 border ${isHighlighted ? 'border-red-400/30' : 'border-gray-700'}">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-bolt ${isHighlighted ? 'text-red-400' : 'text-yellow-400'}"></i>
+                            <span class="text-xs text-gray-300 font-bold">DAMAGE SCORE</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-lg font-bold ${isHighlighted ? 'text-red-400 animate-pulse' : 'text-yellow-400'}">
+                                ${achievement.damage}
+                            </span>
+                            <p class="text-[10px] text-gray-500">${isHighlighted ? 'NEW RECORD!' : 'Previous Record'}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Footer with meta info
+        innerHTML += `
+                    <div class="flex items-center gap-2 mt-3 text-[10px] ${isHighlighted ? 'text-red-300' : 'text-gray-500'}">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span>${achievement.date}</span>
+                        <span class="mx-2">•</span>
+                        <i class="fa-solid fa-${icon} ${categoryColor.text}"></i>
+                        <span class="font-bold">${displayText}</span>
+                        ${isHighlighted ? '<span class="ml-2 text-red-400 font-bold">🔥 NEW RECORD!</span>' : ''}
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        achievementElement.innerHTML = innerHTML;
+        wrapper.appendChild(achievementElement);
+    });
+    
+    // Show/hide "Show More" button
+    if (sorted.length > 3) {
+        container.classList.remove('hidden');
+        if (showMoreBtn) {
+            showMoreBtn.innerText = isShowingAllAchievements ? "Show Less Achievements" : "Show More Achievements";
+        }
+    } else {
+        container.classList.add('hidden');
+    }
+}
+
+
+
+
+// R4 Officer Data - Much cleaner than HTML repetition
+const R4_OFFICERS = [
+    { name: "JEI", role: "Site Admin", icon: "code", color: "text-sys-gold" },
+    { name: "JOR", role: "War • Events", icon: "shield-halved", color: "text-red-400" },
+    { name: "Karbs", role: "War Commander", icon: "shield-halved", color: "text-red-400" },
+    { name: "NAILONGSKI", role: "Recruit • Events", icon: "bullhorn", color: "text-blue-400" },
+    { name: "LipBite", role: "Events & Comms", icon: "bullhorn", color: "text-slate-400" },
+    { name: "xGomx", role: "Recruit • Events", icon: "user-plus", color: "text-blue-400" },
+    { name: "MIRAI", role: "Diplomacy • Events", icon: "comments", color: "text-blue-400" },
+    { name: "YANI", role: "Diplomacy • Events", icon: "comments", color: "text-blue-400" },
+    { name: "KERINA", role: "War • Diplomacy", icon: "scroll", color: "text-slate-400", span: true }
+];
+
+function renderOfficers() {
+    const grid = document.getElementById('r4-grid');
+    if (!grid) return;
+    
+    grid.innerHTML = R4_OFFICERS.map(officer => `
+        <div class="glass-panel p-3 rounded-lg flex items-center gap-3 border border-gray-800 ${officer.span ? 'sm:col-span-2' : ''}">
+            <div class="w-10 h-10 rounded-full pfp-border-r4 bg-ice-mid flex-shrink-0 flex items-center justify-center text-slate-400">
+                <i class="fa-solid fa-${officer.icon} text-sm"></i>
+            </div>
+            <div>
+                <h4 class="font-heading text-sm text-white uppercase">${officer.name}</h4>
+                <p class="text-[9px] ${officer.color} uppercase font-bold">${officer.role}</p>
+            </div>
+        </div>
+    `).join('');
+}
+// --- Gift codes Functions ---
+function isNewCode(dateString) {
+    const added = new Date(dateString);
+    const now = new Date();
+
+    const diffDays = (now - added) / (1000 * 60 * 60 * 24);
+    return diffDays <= 3;
+}
+
+function renderGiftCodes() {
+    const container = document.getElementById('gift-code-wrapper');
+    if (!container) return;
+
+    container.innerHTML = GIFT_CODES.map(item => {
+        const isNew = isNewCode(item.dateAdded);
+
+        return `
+            <div class="glass-panel p-3 rounded-lg flex justify-between items-center border border-gray-700">
+                
+                <div class="flex items-center gap-2">
+                    <span class="font-bold text-white">${item.code}</span>
+
+                    ${isNew ? `
+                        <span class="text-[8px] px-2 py-0.5 bg-red-500/20 text-red-400 rounded-full font-bold animate-pulse">
+                            NEW
+                        </span>
+                    ` : ''}
+                </div>
+
+                <button 
+    class="copy-btn text-xs bg-frost/20 text-frost px-2 py-1 rounded"
+    data-code="${item.code}"
+>
+    Copy
+</button>
+
+            </div>
+        `;
+    }).join('');
+    enableCopyButtons();
+}
+function enableCopyButtons() {
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const code = btn.getAttribute('data-code');
+
+            navigator.clipboard.writeText(code);
+
+            // feedback
+            btn.innerText = "Copied!";
+            btn.classList.add("text-green-400");
+
+            setTimeout(() => {
+                btn.innerText = "Copy";
+                btn.classList.remove("text-green-400");
+            }, 1500);
+        });
+    });
+}
+function showNewCodeFloating() {
+    const hasNew = GIFT_CODES.some(c => isNewCode(c.dateAdded));
+    if (!hasNew) return;
+
+    const box = document.createElement('div');
+
+    box.className = `
+        fixed bottom-36 right-4 z-50
+        bg-red-500/20 border border-red-400/30
+        text-red-300 px-4 py-2 rounded-lg
+        shadow-lg animate-pulse cursor-pointer
+    `;
+
+    box.innerHTML = `
+        <div class="flex items-center gap-2">
+            <i class="fa-solid fa-gift"></i>
+            <span class="text-xs font-bold uppercase">New Code Available</span>
+        </div>
+    `;
+
+    // optional scroll
+    box.onclick = () => {
+        document.getElementById('gift-section')
+            ?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    document.body.appendChild(box);
+}
+document.addEventListener("DOMContentLoaded", () => {
+    renderGiftCodes();
+    showNewCodeFloating();
+});
+// --- Configuration & Constants ---
+const EVENT_DURATION = 30 * 60 * 1000;
+const CYCLE_TIME = 48 * 60 * 60 * 1000;
+const HUNT_WINDOW = 24 * 60 * 60 * 1000; 
+const BH_REF_START = new Date(2026, 0, 6, 0, 0, 0, 0).getTime();
+
+
 
 function getSessionStartInCycle(utcHour) {
     const refStart = new Date(BH_REF_START);
@@ -447,8 +545,35 @@ function loadAnnouncements() {
     const showMoreBtn = document.getElementById('show-more-btn');
     const container = document.getElementById('show-more-container');
     if (!wrapper) return;
+    
     wrapper.innerHTML = '';
-    const sorted = [...ANNOUNCEMENTS].sort((a, b) => b.id - a.id);
+    
+    // Get today's date (start of day for comparison)
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    // Filter announcements to only show current or past dates
+    const sorted = [...ANNOUNCEMENTS]
+        .filter(ann => {
+            const annDate = new Date(ann.date);
+            annDate.setHours(0, 0, 0, 0);
+            return annDate <= today;
+        })
+        .sort((a, b) => b.id - a.id);
+    
+    // Show message if no announcements available
+    if (sorted.length === 0) {
+        wrapper.innerHTML = `
+            <div class="glass-panel p-6 rounded-xl text-center border border-gray-700">
+                <i class="fa-solid fa-calendar-alt text-gray-500 text-2xl mb-2"></i>
+                <p class="text-gray-400 text-sm">No announcements yet.</p>
+                <p class="text-gray-500 text-xs mt-1">Check back later for updates!</p>
+            </div>
+        `;
+        container.classList.add('hidden');
+        return;
+    }
+    
     sorted.forEach((ann, index) => {
         const annElement = document.createElement('div');
         annElement.className = "bg-gradient-to-r from-ice-mid to-ice-light border-l-4 border-sys-gold rounded-r-lg p-4 shadow-lg transition-all hover:scale-[1.01]";
@@ -465,9 +590,13 @@ function loadAnnouncements() {
             </div>`;
         wrapper.appendChild(annElement);
     });
+    
+    // Show/hide "Show More" button based on filtered count
     if (sorted.length > 5) {
         container.classList.remove('hidden');
         showMoreBtn.innerText = isShowingAll ? "Show Less" : "Show More";
+    } else {
+        container.classList.add('hidden');
     }
 }
 
@@ -487,21 +616,70 @@ function createSnow() {
     }, duration * 1000);
 }
 
+// Check if any achievement has today's date
+function hasNewAchievementToday() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    const todayStr = `${year}-${month}-${day}`;
+    
+    return ACHIEVEMENTS.some(achievement => achievement.date === todayStr);
+}
+
+// Setup floating achievements button
+function setupFloatingAchievements() {
+    const floatingAchievements = document.getElementById('floating-achievements');
+    const achievementsSection = document.getElementById('achievements-section');
+    
+    if (!floatingAchievements || !achievementsSection) return;
+    
+    if (hasNewAchievementToday()) {
+        floatingAchievements.classList.remove('hidden');
+        
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        floatingAchievements.classList.add('opacity-0', 'pointer-events-none');
+                        floatingAchievements.classList.remove('opacity-100');
+                    } else {
+                        floatingAchievements.classList.remove('opacity-0', 'pointer-events-none');
+                        floatingAchievements.classList.add('opacity-100');
+                    }
+                });
+            },
+            { threshold: 0.5, rootMargin: '-50% 0px -50% 0px' }
+        );
+        
+        observer.observe(achievementsSection);
+    }
+}
 
 
-
+// Update the window.onload function to include achievements
 window.onload = () => {
     loadAnnouncements();
+    loadAchievements(); // Add this line
     setInterval(updateBearHunt, 1000);
     updateBearHunt();
     setInterval(createSnow, 1000);
     renderOfficers();
+    setupFloatingAchievements();
     
     // Setup floating bear functionality
     setupFloatingBear();
     
+    
+    // Announcements show more button
     document.getElementById('show-more-btn')?.addEventListener('click', () => {
         isShowingAll = !isShowingAll;
         loadAnnouncements();
+    });
+    
+    // Achievements show more button
+    document.getElementById('achievement-more-btn')?.addEventListener('click', () => {
+        isShowingAllAchievements = !isShowingAllAchievements;
+        loadAchievements();
     });
 };
