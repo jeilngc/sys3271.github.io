@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 38,
+    message: "EVENTS FOR TODAY:\n\n• Crazy Joe – 9pm PHT (13 UTC)\n\n• SvS Prep Day 2 – Best to use:\n→ FC & Hero Shards, Lucky Wheel, Gather RSS, E.Skills, Expert Sigil, Dawn Academy upgrades (gathering boost + pet skill)\n• Last Day: Alliance Champ. Registraion – follow the guide sent\n• Frostfire Mine – pick your time\n\nLAST DAY: Flame & Fangs\n\nThank you",
+    date: "2026-03-24"
+},
+{
     id: 37,
     message: "EVENTS FOR TODAY:\n\n• BT2 – 12pm PHT (4 UTC)\n• BT1 – 8:40pm PHT (12:40 UTC)\n\n• Mercenary Captain - after BT1 please be online(active) later to claim rewards\n\n• SvS Prep Day 1 – Best to Use:\n→ Construction Speedups\n\nLAST DAY: Officer Project, Mercenary Prestige\n\nThank you",
     date: "2026-03-23"
