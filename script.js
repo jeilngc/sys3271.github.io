@@ -56,7 +56,7 @@ let isShowingAll = false;
 const GIFT_CODES = [
     { code: "jpholiday320", dateAdded: "2026-03-21" },
     { code: "EidMubarak2026", dateAdded: "2026-03-20" },
-    { code: "OLD777", dateAdded: "2026-03-10" }
+    
 ];
 const ACHIEVEMENTS = [
     {
