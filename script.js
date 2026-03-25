@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 39,
+    message: "EVENTS FOR TODAY:\n\n• BT2 – 12:00 PM PHT (4:00 UTC)\n• BT1 – 8:20 PM PHT (12:20 UTC)\n\n• SvS Prep Day 3 – Best to focus on:\n→ Rallying Polar Terrors / Defeating Beasts (use Gina to save stamina, and turn on Auto Join by setting your formation to Jessie as lead)\n\nLAST DAY: Defeat nearby beasts, Flame & Fangs (redeem rewards)\n\nThank you, and have a great day! 😊",
+    date: "2026-03-25"
+},
+{
     id: 38,
     message: "EVENTS FOR TODAY:\n\n• Crazy Joe – 9pm PHT (13 UTC)\n\n• SvS Prep Day 2 – Best to use:\n→ FC & Hero Shards, Lucky Wheel, Gather RSS, E.Skills, Expert Sigil, Dawn Academy upgrades (gathering boost + pet skill)\n• Last Day: Alliance Champ. Registraion – follow the guide sent\n• Frostfire Mine – pick your time\n\nLAST DAY: Flame & Fangs\n\nThank you",
     date: "2026-03-24"
