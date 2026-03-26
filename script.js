@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 40,
+    message: "EVENTS FOR TODAY:\n\n• Crazy Joe – 9pm PHT (13 UTC)\n→ guides will be send separately\n\n• SvS Prep Day 4 – Best to use:\n→ Train/Promote Troops (Minister of Education + Training Capacity), Chief Charms\n\n• LAST DAY: Lucky Wheel\n\nThank you & have a great day 😊",
+    date: "2026-03-26"
+},
+{
     id: 39,
     message: "EVENTS FOR TODAY:\n\n• BT2 – 12:00 PM PHT (4:00 UTC)\n• BT1 – 8:20 PM PHT (12:20 UTC)\n\n• SvS Prep Day 3 – Best to focus on:\n→ Rallying Polar Terrors / Defeating Beasts (use Gina to save stamina, and turn on Auto Join by setting your formation to Jessie as lead)\n\nLAST DAY: Defeat nearby beasts, Flame & Fangs (redeem rewards)\n\nThank you, and have a great day! 😊",
     date: "2026-03-25"
