@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 41,
+    message: "EVENTS FOR TODAY:\n\n• BT2 – 12pm PHT (4 UTC)\n• BT1 – 8pm PHT (12 UTC)\n\n• Fortress 12 - 5pm (9 UTC)\n\n• SvS Prep Day 5 (LAST Day)\n\nNote: Please DO NOT go to Stronghold 2\n\nThank you",
+    date: "2026-03-27"
+},
+{
     id: 40,
     message: "EVENTS FOR TODAY:\n\n• Crazy Joe – 9pm PHT (13 UTC)\n→ guides will be send separately\n\n• SvS Prep Day 4 – Best to use:\n→ Train/Promote Troops (Minister of Education + Training Capacity), Chief Charms\n\n• LAST DAY: Lucky Wheel\n\nThank you & have a great day 😊",
     date: "2026-03-26"
