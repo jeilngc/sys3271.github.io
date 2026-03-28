@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 42,
+    message: "EVENTS FOR TODAY:\n\n• SvS Prep Day 5 (LAST Day!) – ends 6pm PHT (10 UTC)\n\n• Crossover Portal – opens 6pm PHT (10 UTC)\n• TP for SFC – 7pm PHT (11 UTC) based on Alliance labels\n• Read & follow the SvS guide sent\n\nThank you",
+    date: "2026-03-28"
+},
+{
     id: 41,
     message: "EVENTS FOR TODAY:\n\n• BT2 – 12pm PHT (4 UTC)\n• BT1 – 8pm PHT (12 UTC)\n\n• Fortress 12 - 5pm (9 UTC)\n\n• SvS Prep Day 5 (LAST Day)\n\nNote: Please DO NOT go to Stronghold 2\n\nThank you",
     date: "2026-03-27"
