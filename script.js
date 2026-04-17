@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 44,
+    message: "EVENTS FOR 04/17:\n\n• STRONGHOLD 4 - 13UTC-9PM Pht\n• FORTRESS\n-> Fort 1- 13UTC-9PM Pht\n-> Fort 9- 14UTC-10PM Pht\n\nNote: Guide for SH and Fort battle will be sent separately.\n\n• REMINDER- Save for next week's SVS prep.\n\nLAST DAY:\n• Fishing Tournament\n• Heros Mission\n\nThank you & welcome to sys for those new here 🎉 have a great day 😊",
+    date: "2026-04-17"
+},
+{
     id: 43,
     message: "EVENTS FOR 03/31:\n\n• BT2 – 12pm PHT (4 UTC)\n• BT1 – 8pm PHT (12 UTC)\n\n• Register Alliance Champ - same guide last time\n• Vote – Foundry Battle: 12:00 or 14:00 UTC\n\n• Alliance Showdown Day 2 – Best to Use: Fire Crystals, Gems, Hero Shards, Speedups, Escort/Raid Trucks\n\nLast Day: armament competition",
     date: "2026-03-31"
