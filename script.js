@@ -263,11 +263,8 @@ function loadAchievements() {
 const R4_OFFICERS = [
     { name: "JEI", role: "Site Admin", icon: "code", color: "text-sys-gold" },
     { name: "JOR", role: "War • Events", icon: "shield-halved", color: "text-red-400" },
-    { name: "Karbs", role: "War Commander", icon: "shield-halved", color: "text-red-400" },
     { name: "NAILONGSKI", role: "Recruit • Events", icon: "bullhorn", color: "text-blue-400" },
     { name: "LipBite", role: "Events & Comms", icon: "bullhorn", color: "text-slate-400" },
-    { name: "xGomx", role: "Recruit • Events", icon: "user-plus", color: "text-blue-400" },
-    { name: "MIRAI", role: "Diplomacy • Events", icon: "comments", color: "text-blue-400" },
     { name: "YANI", role: "Diplomacy • Events", icon: "comments", color: "text-blue-400" },
     { name: "KERINA", role: "War • Diplomacy", icon: "scroll", color: "text-slate-400", span: true }
 ];
