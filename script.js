@@ -511,7 +511,7 @@ function updateBearHunt() {
         }
     }
     updateBTSession(1, 12, cyclePos, isHuntDay);
-    updateBTSession(2, 4, cyclePos, isHuntDay);
+    updateBTSession(2, 15, cyclePos, isHuntDay);
 }
 
 function updateBTSession(id, utcHour, cyclePos, isHuntDay) {
