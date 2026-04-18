@@ -83,10 +83,8 @@ const ANNOUNCEMENTS = [
 ];
 let isShowingAll = false;
 // --- Gift codes ---
+// Template = { code: "", dateAdded: "" },
 const GIFT_CODES = [
-    { code: "jpholiday320", dateAdded: "2026-03-21" },
-    { code: "EidMubarak2026", dateAdded: "2026-03-20" },
-    { code: "gogoWOS", dateAdded: "2026-03-26" },
     
 ];
 const ACHIEVEMENTS = [
