@@ -90,7 +90,7 @@ let isShowingAll = false;
 // --- Gift codes ---
 // Template = { code: "", dateAdded: "" },
 const GIFT_CODES = [
-    { code: "Nesty", dateAdded: "4-18-26" },
+  
     
 ];
 const ACHIEVEMENTS = [
