@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 46,
+    message: "EVENTS FOR TODAY:\n\n• Foundry L1 - 8pm PHT (12 UTC)\n• Foundry L2 - 10pm PHT (14 UTC)\n\n• Flame & Fangs - Do your intel and follow the guide sent\n\nThank you",
+    date: "2026-04-19"
+},
+{
     id: 45,
     message: "EVENTS FOR 04/18:\n\n• BT1 – 9pm PHT (13 UTC)\n• BT2 – 11pm PHT (15 UTC)\n\n• Canyon Clash (Tonight)\n→ L1: 8pm PHT (12 UTC)\n→ L2: 10pm PHT (14 UTC)\n\n• SvS Matchmaking – Hold power, upgrade starting Monday\n\nLAST DAY: Alliance Mobi., Armament & Treasure Hunter.\n\nUPCOMING: FOUNDRY\n\nThank you",
     date: "2026-04-18"
