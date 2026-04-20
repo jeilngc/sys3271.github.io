@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 47,
+    message: "EVENTS FOR TODAY:\n\n• BT1 – 8:35pm PHT (12:35 UTC)\n• BT2 – 10:35pm PHT (14:35 UTC)\n\n• SvS Prep Day 1 – Best to Use:\n→ Speedups, FC, Chief Charms\n\n• Alliance Champ - Same guide as before (follow the guide sent)\n\nLAST DAY: Officer Project\n\nThank you",
+    date: "2026-04-20"
+},
+{
     id: 46,
     message: "EVENTS FOR TODAY:\n\n• Foundry L1 - 8pm PHT (12 UTC)\n• Foundry L2 - 10pm PHT (14 UTC)\n\n• Flame & Fangs - Do your intel and follow the guide sent\n\nThank you",
     date: "2026-04-19"
