@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 48,
+    message: "EVENTS FOR TODAY:\n\n• Crazy Joe – 9pm PHT (13 UTC)\n\n• SvS Prep Day 2 – Best to use:\n→ FC & Hero Shards, Lucky Wheel, Gather RSS, E.Skills, Expert Sigil, Dawn Academy upgrades (gathering boost + pet skill)\n\n• Last Day: Alliance Champ. Registration\n\n• Frostfire Mine – pick your time\n\nThank you",
+    date: "2026-04-21"
+},
+{
     id: 47,
     message: "EVENTS FOR TODAY:\n\n• BT1 – 8:35pm PHT (12:35 UTC)\n• BT2 – 10:35pm PHT (14:35 UTC)\n\n• SvS Prep Day 1 – Best to Use:\n→ Speedups, FC, Chief Charms\n\n• Alliance Champ - Same guide as before (follow the guide sent)\n\nLAST DAY: Officer Project\n\nThank you",
     date: "2026-04-20"
