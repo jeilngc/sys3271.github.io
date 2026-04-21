@@ -1,7 +1,7 @@
 const ANNOUNCEMENTS = [
 {
     id: 48,
-    message: "EVENTS FOR TODAY:\n\n• Crazy Joe – 9pm PHT (13 UTC)\n\n• SvS Prep Day 2 – Best to use:\n→ FC & Hero Shards, Lucky Wheel, Gather RSS, E.Skills, Expert Sigil, Dawn Academy upgrades (gathering boost + pet skill)\n\n• Last Day: Alliance Champ. Registration\n\n• Frostfire Mine – pick your time\n\nThank you",
+    message: "EVENTS FOR 4/21:\n\n• Crazy Joe – 9pm PHT (13 UTC)\n\n• SvS Prep Day 2 – Best to use:\n→ FC & Hero Shards, Lucky Wheel, Gather RSS, E.Skills, Expert Sigil, Dawn Academy upgrades (gathering boost + pet skill)\n\n• Last Day: Alliance Champ. Registration\n\n• Frostfire Mine – pick your time\n\nThank you",
     date: "2026-04-21"
 },
 {
