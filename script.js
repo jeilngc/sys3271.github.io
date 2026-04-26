@@ -1,7 +1,7 @@
 const ANNOUNCEMENTS = [
 {
     id: 53,
-    message: "EVENTS FOR 4/26:\n\n• BT1 – 8pm PHT (12 UTC)\n• BT2 – 10pm PHT (14 UTC)\n\n• SvS Revival Day – help revive lost troops\n• Save items for Alliance Showdown tomorrow\n\nThank you & Happy weekends 😊",
+    message: "EVENTS FOR 4/26:\n\n• BT1 – 8pm PHT (12 UTC)\n• BT2 – 9:45pm PHT (13:45 UTC)\n\n• SvS Revival Day – help revive lost troops\n• Save items for Alliance Showdown tomorrow\n\nThank you & Happy weekends 😊",
     date: "2026-04-26"
 },
 {
