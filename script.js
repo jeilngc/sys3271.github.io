@@ -130,14 +130,24 @@ const GIFT_CODES = [
 ];
 const ACHIEVEMENTS = [
     {
+        id: 3,
+        title: "BEAR HUNT  DAMAGE BREAKTHROUGH",
+        description: "Smashed previous record with 20.4B damage in Bear Hunt BT2 session",
+        date: "2026-04-24",
+        category: "damage",
+        damage: "20.4B",                // <-- added
+        image: "img/achievements/bearhunt-record.jpg",
+        highlight: true
+    },
+    {
         id: 2,
         title: "BEAR HUNT  DAMAGE BREAKTHROUGH",
-        description: "Smashed previous record with 10.6B damage in Bear Hunt BT1 session",
+        description: "Smashed previous record with 14.8B damage in Bear Hunt BT1 session",
         date: "2026-03-24",
         category: "damage",
         damage: "14.8B",                // <-- added
         image: "img/achievements/bearhunt-record.jpg",
-        highlight: true
+        
     },
     {
         id: 1,
