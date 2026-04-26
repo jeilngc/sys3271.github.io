@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 53,
+    message: "EVENTS FOR 4/26:\n\n• BT1 – 8pm PHT (12 UTC)\n• BT2 – 10pm PHT (14 UTC)\n\n• SvS Revival Day – help revive lost troops\n• Save items for Alliance Showdown tomorrow\n\nThank you & Happy weekends 😊",
+    date: "2026-04-26"
+},
+{
     id: 52,
     message: "EVENTS FOR 4/25:\n\n• SvS Prep Day 5 (LAST Day!) – ends 6pm PHT (10 UTC)\n\n• Crossover Portal – opens 6pm PHT (10 UTC)\n• TP for SFC – 7pm PHT (11 UTC) based on Alliance labels\n• Read & follow the SvS guide sent\n\nThank you",
     date: "2026-04-25"
