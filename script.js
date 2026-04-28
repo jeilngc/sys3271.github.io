@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 55,
+    message: "EVENTS FOR 4/28:\n\n• BT1 – 8pm PHT (12 UTC)\n• BT2 – 10:00pm PHT (14:00 UTC)\n\n• Alliance Showdown Day 2 - Best to use:\nHero Shards / Expert sigil / Book of knowledge\n\n• Snowbuster\n• Vision of dawn",
+    date: "2026-04-28"
+},
+{
     id: 54,
     message: "EVENTS FOR 4/27:\n\n• Register Alliance Champ - same guide last time\n• Vote – Foundry Battle: 12:00 or 14:00 UTC\n\n• Alliance Showdown Day 1 – Best to Use: Fire Crystals, Gems, Construction Speedups, Gather RSS (gathering boost + pet skill), Escort/Raid Trucks\n\nThank you 😊",
     date: "2026-04-27"
