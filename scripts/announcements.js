@@ -1,7 +1,7 @@
 const ANNOUNCEMENTS = [
     {
         id: 55,
-        message: "EVENTS FOR 4/28:\n\n• BT1 – 8pm PHT (12 UTC)\n• BT2 – 10:00pm PHT (14:00 UTC)\n\n• Alliance Showdown Day 2 - Best to use:\nHero Shards / Expert sigil / Book of knowledge\n\n• Snowbuster\n• Vision of dawn",
+        message: "EVENTS FOR 4/28:\n\n• BT1 – 8pm PHT (12 UTC)\n• BT2 – 10:00pm. PHT (14:00 UTC)\n\n• Alliance Showdown Day 2 - Best to use:\nHero Shards / Expert sigil / Book of knowledge\n\n• Snowbuster\n• Vision of dawn",
         date: "2026-04-28"
     },
     // ... (rest of your ANNOUNCEMENTS array – keep it identical)
