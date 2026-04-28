@@ -2,41 +2,84 @@ const fs = require('fs');
 const crypto = require('crypto');
 const path = require('path');
 
-// Get all CSS files
-const cssFiles = fs.readdirSync('.').filter(f => f.endsWith('.css') && !f.includes('.hash.'));
-// Get all JS files  
-const jsFiles = fs.readdirSync('.').filter(f => f.endsWith('.js') && !f.includes('.hash.'));
+// Files/folders to ignore
+const ignore = ['build.js', 'node_modules', '.git', '.github'];
 
-// Process each CSS file
-cssFiles.forEach(cssFile => {
-  const content = fs.readFileSync(cssFile);
-  const hash = crypto.createHash('md5').update(content).digest('hex').slice(0, 8);
-  const newName = cssFile.replace('.css', `.${hash}.css`);
-  
-  // Rename file
-  fs.renameSync(cssFile, newName);
-  console.log(`✅ ${cssFile} → ${newName}`);
-  
-  // Update HTML
-  let html = fs.readFileSync('index.html', 'utf8');
-  html = html.replace(cssFile, newName);
-  fs.writeFileSync('index.html', html);
+// Recursively find all .css and .js files (excluding ignored paths)
+function findFiles(dir, extension, result = []) {
+    const items = fs.readdirSync(dir);
+    for (const item of items) {
+        const fullPath = path.join(dir, item);
+        const stat = fs.statSync(fullPath);
+        if (stat.isDirectory()) {
+            if (!ignore.includes(item)) {
+                findFiles(fullPath, extension, result);
+            }
+        } else if (item.endsWith(extension) && !ignore.includes(item) && !item.includes('.hash.')) {
+            result.push(fullPath);
+        }
+    }
+    return result;
+}
+
+// Get all CSS and JS files
+const cssFiles = findFiles('.', '.css');
+const jsFiles = findFiles('.', '.js');
+
+// Store renamed paths for updating HTML
+const renamed = {};
+
+// Process CSS files
+cssFiles.forEach(origPath => {
+    const content = fs.readFileSync(origPath);
+    const hash = crypto.createHash('md5').update(content).digest('hex').slice(0, 8);
+    const dir = path.dirname(origPath);
+    const ext = path.extname(origPath);
+    const base = path.basename(origPath, ext);
+    const newName = `${base}.${hash}${ext}`;
+    const newPath = path.join(dir, newName);
+    
+    fs.renameSync(origPath, newPath);
+    console.log(`✅ ${origPath} → ${newPath}`);
+    renamed[origPath] = newPath;
 });
 
-// Process each JS file
-jsFiles.forEach(jsFile => {
-  const content = fs.readFileSync(jsFile);
-  const hash = crypto.createHash('md5').update(content).digest('hex').slice(0, 8);
-  const newName = jsFile.replace('.js', `.${hash}.js`);
-  
-  // Rename file
-  fs.renameSync(jsFile, newName);
-  console.log(`✅ ${jsFile} → ${newName}`);
-  
-  // Update HTML
-  let html = fs.readFileSync('index.html', 'utf8');
-  html = html.replace(jsFile, newName);
-  fs.writeFileSync('index.html', html);
+// Process JS files
+jsFiles.forEach(origPath => {
+    const content = fs.readFileSync(origPath);
+    const hash = crypto.createHash('md5').update(content).digest('hex').slice(0, 8);
+    const dir = path.dirname(origPath);
+    const ext = path.extname(origPath);
+    const base = path.basename(origPath, ext);
+    const newName = `${base}.${hash}${ext}`;
+    const newPath = path.join(dir, newName);
+    
+    fs.renameSync(origPath, newPath);
+    console.log(`✅ ${origPath} → ${newPath}`);
+    renamed[origPath] = newPath;
 });
 
-console.log('🎉 Nest P Sison Bading');
+// Update all HTML files
+const htmlFiles = findFiles('.', '.html');
+htmlFiles.forEach(htmlPath => {
+    let html = fs.readFileSync(htmlPath, 'utf8');
+    let modified = false;
+    
+    for (const [orig, renamedPath] of Object.entries(renamed)) {
+        // Convert absolute paths to relative for HTML matching
+        const origRelative = orig.startsWith('./') ? orig : './' + orig;
+        const origPattern = orig.replace(/\\/g, '/'); // Windows fix
+        
+        if (html.includes(origPattern)) {
+            html = html.split(origPattern).join(renamedPath.replace(/\\/g, '/'));
+            modified = true;
+        }
+    }
+    
+    if (modified) {
+        fs.writeFileSync(htmlPath, html);
+        console.log(`📄 Updated ${htmlPath}`);
+    }
+});
+
+console.log('🎉 Build complete!');
