@@ -135,7 +135,7 @@ let isShowingAll = false;
 // --- Gift codes ---
 // Template = { code: "", dateAdded: "" },
 const GIFT_CODES = [
-  
+{ code: "OFFICIALSTORE", dateAdded: "4-28-2026" },
     
 ];
 const ACHIEVEMENTS = [
