@@ -1,7 +1,7 @@
 const R4_OFFICERS = [
     { name: "JEI", role: "Site Admin • Events", icon: "code", color: "text-sys-gold" },
-    { name: "HADES", role: "Events & Comms", icon: "bullhorn", color: "text-slate-400" },
     { name: "PSY", role: "Events & Comms", icon: "bullhorn", color: "text-slate-400" },
+    { name: "HADES", role: "Events & Comms", icon: "bullhorn", color: "text-slate-400" },
     { name: "JM", role: "Events & Comms", icon: "bullhorn", color: "text-slate-400" },
     { name: "KERINA", role: "Comms • Diplomacy", icon: "scroll", color: "text-slate-400", span: true }
 ];
