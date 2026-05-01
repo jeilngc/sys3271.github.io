@@ -1,9 +1,9 @@
 const R4_OFFICERS = [
     { name: "JEI", role: "Site Admin • Events", icon: "code", color: "text-sys-gold" },
-    { name: "HADES", role: "War • Events", icon: "shield-halved", color: "text-red-400" },
-    { name: "PSY", role: "Recruit • Events", icon: "bullhorn", color: "text-blue-400" },
+    { name: "HADES", role: "Events & Comms", icon: "bullhorn", color: "text-slate-400" },
+    { name: "PSY", role: "Events & Comms", icon: "bullhorn", color: "text-slate-400" },
     { name: "JM", role: "Events & Comms", icon: "bullhorn", color: "text-slate-400" },
-    { name: "KERINA", role: "War • Diplomacy", icon: "scroll", color: "text-slate-400", span: true }
+    { name: "KERINA", role: "Comms • Diplomacy", icon: "scroll", color: "text-slate-400", span: true }
 ];
 
 function renderOfficers() {
