@@ -4,6 +4,7 @@
 const GIFT_CODES = [
     { code: "OFFICIALSTORE", dateAdded: "2026-04-28", description: "Redeem in-game for rewards" },
     { code: "GW2026JP", dateAdded: "2026-04-30", description: "Redeem in-game for rewards" },
+    { code: "HappyMayDay", dateAdded: "2026-05-01", description: "Redeem in-game or Link for rewards" },
     // ... add the rest of your codes here; include `description` if you want a short note
 ];
 
