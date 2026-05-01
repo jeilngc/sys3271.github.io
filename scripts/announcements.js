@@ -1,4 +1,10 @@
 const ANNOUNCEMENTS = [
+{
+    id: 56,
+    message: "EVENTS FOR 5/1:\n\n• Stronghold 4 - 5pm (9 UTC)\n• Fortress 7 - 5pm PHT (9 UTC)\n• Fortress 10 - 5pm PHT (9 UTC)\n\nNote: Guide for SH and Fort battle will be sent separately.\n\n• Alliance Showdown Day 5 - just do personal points & save for KOI and SVS\n\nNote: Please DO NOT go to SH3 & FORT9\n\nLAST EVENT: Heros Mission\n\nNEW EVENT: Dream Miracle\n\n- Thank you",
+    date: "2026-05-01"
+},
+
     {
         id: 55,
         message: "EVENTS FOR 4/28:\n\n• BT1 – 8pm. PHT (12 UTC)\n• BT2 – 10:00pm. PHT (14:00 UTC)\n\n• Alliance Showdown Day 2 - Best to use:\nHero Shards / Expert sigil / Book of knowledge\n\n• Snowbuster\n• Vision of dawn",
