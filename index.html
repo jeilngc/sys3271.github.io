@@ -320,6 +320,21 @@
         </div>
     </a>
 </div>
+<!-- Floating Gift Button (for new codes today) -->
+<div id="floating-gift" class="hidden fixed bottom-24 right-4 z-50 cursor-pointer group">
+    <a href="#gift-section" class="block transition-transform hover:scale-110 active:scale-95">
+        <div class="relative">
+            <div class="absolute -inset-4 bg-frost/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <!-- Place a gift icon; no image needed, fallback to font‑awesome -->
+            <div class="relative w-16 h-16 rounded-full border-4 border-sys-gold/50 bg-amber-800 flex items-center justify-center bear-pulse">
+                <i class="fa-solid fa-gift text-sys-gold text-2xl"></i>
+            </div>
+            <div class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-red-500 flex items-center justify-center">
+                <span class="text-white text-xs font-bold pulse-dot">!</span>
+            </div>
+        </div>
+    </a>
+</div>
 
         <!-- Giftcodes Section -->
 <section id="gift-section">
@@ -329,8 +344,14 @@
     </div>
 
     <div id="gift-code-wrapper" class="space-y-3"></div>
-</section>
 
+        
+<div id="gift-more-container" class="mt-4 text-center hidden">
+    <button id="gift-more-btn" class="text-xs font-bold text-frost uppercase tracking-widest hover:text-white transition-colors py-2 px-4 border border-frost/30 rounded-lg bg-frost/5">
+        Show More Gift Codes
+    </button>
+</div>
+    </section>
         <!-- Community Section -->
         <section id="discord-section" class="pb-12">
             <div class="flex items-center mb-6">
