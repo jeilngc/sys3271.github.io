@@ -14,8 +14,9 @@ function createSnow() {
 // Consolidated initialisation
 document.addEventListener('DOMContentLoaded', () => {
     // Render static content
-    renderGiftCodes();
-    showNewCodeFloating();
+    
+    loadGiftcodes();
+    setupFloatingGiftCodes();
     renderOfficers();
     loadAnnouncements();
     loadAchievements();
@@ -41,6 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('achievement-more-btn')?.addEventListener('click', () => {
         isShowingAllAchievements = !isShowingAllAchievements;
         loadAchievements();
+    });
+    document.getElementById('gift-more-btn')?.addEventListener('click', () => {
+    isShowingAllGiftCodes = !isShowingAllGiftCodes;
+    loadGiftCodes();
     });
 });
 
