@@ -108,8 +108,6 @@ function loadGiftCodes() {
                         <span>${item.dateAdded}</span>
                         <span class="mx-2">•</span>
                         <i class="fa-solid fa-gift ${categoryColor.text}"></i>
-                        <span class="font-bold">${displayText}</span>
-                        ${isNew ? '<span class="ml-2 text-red-400 font-bold">🔥 NEW TODAY!</span>' : ''}
                     </div>
                 </div>
             </div>`;
