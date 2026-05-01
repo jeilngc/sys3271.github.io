@@ -17,15 +17,6 @@ function isNewCodeToday(dateString) {
     return diffDays <= 3;
 }
 
-// Map codes to a simple "category" if needed (all are OFFICIAL by default)
-const GIFT_CODE_CATEGORY = "official";
-const GIFT_CATEGORY_DISPLAY = {
-    official: "OFFICIAL CODE"
-};
-const GIFT_CATEGORY_COLORS = {
-    official: { text: "text-blue-400", bg: "bg-blue-500/20" }
-};
-
 // Show more / less state
 let isShowingAllGiftCodes = false;
 
