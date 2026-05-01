@@ -91,19 +91,17 @@ function loadGiftCodes() {
                     </div>
                     ${item.description ? `<p class="text-sm ${isNew ? 'text-gray-200' : 'text-gray-300'} mb-3">${item.description}</p>` : ''}
                     <!-- Code box with copy button, styled like the damage score box in achievements -->
-                    <div class="mt-3 p-3 rounded-lg bg-gray-800/50 border ${isNew ? 'border-red-400/30' : 'border-gray-700'}">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-2">
-                                <i class="fa-solid fa-code ${isNew ? 'text-red-400' : 'text-yellow-400'}"></i>
-                                <span class="text-xs text-gray-300 font-bold">GIFT CODE</span>
-                            </div>
-                            <div class="text-right flex items-center gap-3">
-                                <span class="text-sm font-mono font-bold ${isNew ? 'text-red-400 animate-pulse' : 'text-white'}">${item.code}</span>
-                                <button class="copy-btn text-xs bg-frost/20 text-frost px-2 py-1 rounded hover:bg-frost/30 transition" data-code="${item.code}">Copy</button>
-                            </div>
-                        </div>
-                        <p class="text-[10px] text-gray-500 mt-1">Added on ${item.dateAdded}</p>
-                    </div>
+                   <div class="mt-3 p-3 rounded-lg bg-gray-800/50 border ${isNew ? 'border-red-400/30' : 'border-gray-700'}">
+    <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+            <i class="fa-solid fa-code ${isNew ? 'text-red-400' : 'text-yellow-400'}"></i>
+        </div>
+        <div class="text-right flex items-center gap-3">
+            <span class="text-sm font-mono font-bold ${isNew ? 'text-red-400 animate-pulse' : 'text-white'}">${item.code}</span>
+            <button class="copy-btn text-xs bg-frost/20 text-frost px-2 py-1 rounded hover:bg-frost/30 transition" data-code="${item.code}">Copy</button>
+        </div>
+    </div>
+</div>
                     <!-- Footer meta -->
                     <div class="flex items-center gap-2 mt-3 text-[10px] ${isNew ? 'text-red-300' : 'text-gray-500'}">
                         <i class="fa-solid fa-calendar"></i>
