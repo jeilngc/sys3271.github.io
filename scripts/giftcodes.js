@@ -11,12 +11,10 @@ const GIFT_CODES = [
 // HELPER: Detect "new today"
 // =========================
 function isNewCodeToday(dateString) {
-    const today = new Date();
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, '0');
-    const day = String(today.getDate()).padStart(2, '0');
-    const todayStr = `${year}-${month}-${day}`;
-    return dateString === todayStr;
+    const added = new Date(dateString);
+    const now = new Date();
+    const diffDays = (now - added) / (1000 * 60 * 60 * 24);
+    return diffDays <= 3;
 }
 
 // Map codes to a simple "category" if needed (all are OFFICIAL by default)
