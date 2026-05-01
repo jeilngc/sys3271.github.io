@@ -15,7 +15,7 @@ function createSnow() {
 document.addEventListener('DOMContentLoaded', () => {
     // Render static content
     
-    loadGiftcodes();
+    loadGiftCodes();
     setupFloatingGiftCodes();
     renderOfficers();
     loadAnnouncements();
