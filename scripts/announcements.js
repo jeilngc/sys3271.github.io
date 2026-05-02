@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 57,
+    message: "EVENTS FOR 5/2:\n\n• BT1 – 8pm PHT (12 UTC)\n• BT2 – 10pm PHT (14 UTC)\n\n• Alliance Showdown - Day VI\n• Mercenary Event: Please set to auto join & send request if cannot take down or no cans anymore\n\n• Dream Miracle - Day II\n\nLast Day: Tundra Trade, Armament Comp., Mia's Hut\n\nNew Event: Spectral Ice Shark - Day I",
+    date: "2026-05-02"
+},
+{
     id: 56,
     message: "EVENTS FOR 5/1:\n\n• Stronghold 4 - 5pm (9 UTC)\n• Fortress 7 - 5pm PHT (9 UTC)\n• Fortress 10 - 5pm PHT (9 UTC)\n\nNote: Guide for SH and Fort battle will be sent separately.\n\n• Alliance Showdown Day 5 - just do personal points & save for KOI and SVS\n\nNote: Please DO NOT go to SH3 & FORT9\n\nLAST EVENT: Heros Mission\n\nNEW EVENT: Dream Miracle\n\n- Thank you",
     date: "2026-05-01"
