@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 58,
+    message: "EVENTS FOR 5/3:\n\n• Foundry L1 - 12UTC (8pm PHT)\n• Foundry L2 - 14UTC (10pm PHT)\n\n• Mercenary Prestige - 13UTC (9pm PHT)\n\n• Alliance Showdown - Day VI\n\n• Dream Miracle - Day III\n• Officer Projects",
+    date: "2026-05-03"
+},
+{
     id: 57,
     message: "EVENTS FOR 5/2:\n\n• BT1 – 8pm PHT (12 UTC)\n• BT2 – 10pm PHT (14 UTC)\n\n• Alliance Showdown - Day VI\n• Mercenary Event: Please set to auto join & send request if cannot take down or no cans anymore\n\n• Dream Miracle - Day II\n\nLast Day: Tundra Trade, Armament Comp., Mia's Hut\n\nNew Event: Spectral Ice Shark - Day I",
     date: "2026-05-02"
