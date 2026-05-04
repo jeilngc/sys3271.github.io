@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 60,
+    message: "EVENTS FOR 5/5:\n\n• Crazy Joe – 9pm PHT (13 UTC), follow guide sent\n\n• KOI Day 2 – Best to use: Hero Shards, Research Speedups, Lucky Wheel\n• Last Day of Alliance Champ. Registra\n• Frostfire Mine – pick your time\n\nLAST DAY:\n• Dream Miracle\n• Flame & Fangs, Shaved Ice Stall (redeem rewards)\n\nThanks",
+    date: "2026-05-05"
+},
+{
     id: 59,
     message: "EVENTS FOR 5/4:\n\n• BT1 – 8pm (12 UTC)\n• BT2 – 10pm (14 UTC)\n\n• Mercenary Cap: 9pm (13 UTC) after BT1\n• KOI Day 1 - Best to use:\n→ Fire Crystals, Speedups\n• Alliance Champ. Registration - Follow same guide\n\nL-Day: Officer Proj, Spectral Ice Shark\n\nThank you",
     date: "2026-05-04"
