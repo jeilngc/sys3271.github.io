@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 59,
+    message: "EVENTS FOR 5/4:\n\n• BT1 – 8pm (12 UTC)\n• BT2 – 10pm (14 UTC)\n\n• Mercenary Cap: 9pm (13 UTC) after BT1\n• KOI Day 1 - Best to use:\n→ Fire Crystals, Speedups\n• Alliance Champ. Registration - Follow same guide\n\nL-Day: Officer Proj, Spectral Ice Shark\n\nThank you",
+    date: "2026-05-04"
+},
+{
     id: 58,
     message: "EVENTS FOR 5/3:\n\n• Foundry L1 - 12UTC (8pm PHT)\n• Foundry L2 - 14UTC (10pm PHT)\n\n• Mercenary Prestige - 13UTC (9pm PHT)\n\n• Alliance Showdown - Day VI\n\n• Dream Miracle - Day III\n• Officer Projects",
     date: "2026-05-03"
