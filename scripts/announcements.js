@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 61,
+    message: "EVENTS FOR 5/6:\n\n• BT1 – 8pm PHT (12 UTC)\n• BT2 – 10pm PHT (14 UTC)\n\n• KOI Day III - Best to use:\n→ Pets Adv/Ref, Chief Charms\n• Dreamscape Memory - Day I\n\nLAST DAY:\n→ Defeat Nearby Beasts (use Gina to save stamina, and turn on auto to help our fellow to gain more points)\n\nThank you",
+    date: "2026-05-06"
+},
+{
     id: 60,
     message: "EVENTS FOR 5/5:\n\n• Crazy Joe – 9pm PHT (13 UTC), follow guide sent\n\n• KOI Day 2 – Best to use: Hero Shards, Research Speedups, Lucky Wheel\n• Last Day of Alliance Champ. Registra\n• Frostfire Mine – pick your time\n\nLAST DAY:\n• Dream Miracle\n• Flame & Fangs, Shaved Ice Stall (redeem rewards)\n\nThanks",
     date: "2026-05-05"
