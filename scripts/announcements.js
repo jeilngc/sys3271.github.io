@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 62,
+    message: "EVENTS FOR 5/7:\n\n• Crazy Joe - 9pm PHT (13 UTC)\n\n• KOI Day IV - Best to use: Train/Promote Troops, Chief Charm\n• Dreamscape Memory Day II\n\nLAST DAY: Lucky Wheel\n\nUPCOMING EVENTS:\n(Prepare RSS & Shields)\n• BIA (tomorrow) and SFC (this Sat)\n\nThank you",
+    date: "2026-05-07"
+},
+{
     id: 61,
     message: "EVENTS FOR 5/6:\n\n• BT1 – 8pm PHT (12 UTC)\n• BT2 – 10pm PHT (14 UTC)\n\n• KOI Day III - Best to use:\n→ Pets Adv/Ref, Chief Charms\n• Dreamscape Memory - Day I\n\nLAST DAY:\n→ Defeat Nearby Beasts (use Gina to save stamina, and turn on auto to help our fellow to gain more points)\n\nThank you",
     date: "2026-05-06"
