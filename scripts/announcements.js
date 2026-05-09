@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 63,
+    message: "EVENTS FOR 5/9:\n\n• KOI Day VI: Combat Training\n• Wild Brawl\n\n• SFC: Starts @ 8:00pm PHT (12 UTC) to 10:30pm PHT (14:30 UTC)\n- follow SFC guide\n- TP 7pm PHT (13 UTC) based on alliance labels in SFC\n\nLast Day:\n• BIA: Follow rules sent\n\nThank you po",
+    date: "2026-05-09"
+},
+{
     id: 62,
     message: "EVENTS FOR 5/7:\n\n• Crazy Joe - 9pm PHT (13 UTC)\n\n• KOI Day IV - Best to use: Train/Promote Troops, Chief Charm\n• Dreamscape Memory Day II\n\nLAST DAY: Lucky Wheel\n\nUPCOMING EVENTS:\n(Prepare RSS & Shields)\n• BIA (tomorrow) and SFC (this Sat)\n\nThank you",
     date: "2026-05-07"
