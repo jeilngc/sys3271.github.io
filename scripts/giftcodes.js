@@ -2,6 +2,7 @@
 // GIFT CODES DATA
 // =========================
 const GIFT_CODES = [
+{ code: "LoveMom2026", dateAdded: "2026-05-10", description: "Redeem in-game for rewards" },
     { code: "ChildrensDay505", dateAdded: "2026-05-05", description: "Redeem in-game for rewards" },
     { code: "OFFICIALSTORE", dateAdded: "2026-04-28", description: "Redeem in-game for rewards" },
     { code: "GW2026JP", dateAdded: "2026-04-30", description: "Redeem in-game for rewards" },
