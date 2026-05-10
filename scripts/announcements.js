@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 64,
+    message: "EVENTS FOR 5/10:\n\n• BT1 - 8pm PHT (12 UTC)\n• BT2 - 10pm PHT (14 UTC)\n\n• KOI Day VI: Hero Development\n\nLast Day:\n• Wild Brawl",
+    date: "2026-05-10"
+},
+{
     id: 63,
     message: "EVENTS FOR 5/9:\n\n• KOI Day VI: Combat Training\n• Wild Brawl\n\n• SFC: Starts @ 8:00pm PHT (12 UTC) to 10:30pm PHT (14:30 UTC)\n- follow SFC guide\n- TP 7pm PHT (13 UTC) based on alliance labels in SFC\n\nLast Day:\n• BIA: Follow rules sent\n\nThank you po",
     date: "2026-05-09"
