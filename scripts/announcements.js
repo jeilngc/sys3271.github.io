@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 65,
+    message: "EVENTS FOR 5/11:\n\n● Alliance Mobilization - Minimum of 2.5k points\n● Foundry voting - UTC 12 | 14\n● Alliance Championship - Apply for minister and pet skills\n\n○ Tundra Trading Station\n○ Armament Competition\n\nHave a great day, SYS!",
+    date: "2026-05-11"
+},
+{
     id: 64,
     message: "EVENTS FOR 5/10:\n\n• BT1 - 8pm PHT (12 UTC)\n• BT2 - 10pm PHT (14 UTC)\n\n• KOI Day VI: Hero Development\n\nLast Day:\n• Wild Brawl",
     date: "2026-05-10"
