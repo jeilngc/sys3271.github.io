@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 66,
+    message: "EVENTS FOR 5/15:\n\n• Stronghold 1 - 5PM PH (9UTC)\n• Fortress 10 - 5PM PH (9UTC)\n\nNOTE: Will send separate guide.\n\n• Alliance Mob (2.5k Overall personal pts)\n• Armament Comp (2 days left)\n• Bear trap renovation - Do not TP yet without officer's instruction.\n\nLAST DAY - Hero Mission",
+    date: "2026-05-15"
+},
+{
     id: 65,
     message: "EVENTS FOR 5/11:\n\n● Alliance Mobilization - Minimum of 2.5k points\n● Foundry voting - UTC 12 | 14\n● Alliance Championship - Apply for minister and pet skills\n\n○ Tundra Trading Station\n○ Armament Competition\n\nHave a great day, SYS!",
     date: "2026-05-11"
