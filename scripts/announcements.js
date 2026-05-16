@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 67,
+    message: "EVENTS FOR 5/16:\n\n• BT1 – 7:30PM PHT (11:30 UTC)\n• BT2 – 9:30PM PHT (13:30 UTC)\n\n• Canyon Clash\nLegion 1 - 8PM PHT (12UTC)\nLegion 2 - 10PM PHT (14UTC)\n\nNOTE: Will send separate guide\n\n• State of Power Matchmaking (Don't upgrade)\n\nLAST DAY - Alliance Mob (All out), Armament Comp",
+    date: "2026-05-16"
+},
+{
     id: 66,
     message: "EVENTS FOR 5/15:\n\n• Stronghold 1 - 5PM PH (9UTC)\n• Fortress 10 - 5PM PH (9UTC)\n\nNOTE: Will send separate guide.\n\n• Alliance Mob (2.5k Overall personal pts)\n• Armament Comp (2 days left)\n• Bear trap renovation - Do not TP yet without officer's instruction.\n\nLAST DAY - Hero Mission",
     date: "2026-05-15"
