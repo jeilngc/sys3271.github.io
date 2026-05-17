@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 68,
+    message: "EVENTS FOR 5/17:\n\n• FOUNDRY\n- LEGION 1 - 8PM PHT (12UTC)\n- LEGION 2 - 10PM PHT (14UTC)\n\nNOTE: Will send separate guide.\n\n• Officer Project\n• Hall of Heroes\n- Please save items and resources for SVS prep.\n\nLAST DAY - Wander Theater",
+    date: "2026-05-17"
+},
+{
     id: 67,
     message: "EVENTS FOR 5/16:\n\n• BT1 – 7:30PM PHT (11:30 UTC)\n• BT2 – 9:30PM PHT (13:30 UTC)\n\n• Canyon Clash\nLegion 1 - 8PM PHT (12UTC)\nLegion 2 - 10PM PHT (14UTC)\n\nNOTE: Will send separate guide\n\n• State of Power Matchmaking (Don't upgrade)\n\nLAST DAY - Alliance Mob (All out), Armament Comp",
     date: "2026-05-16"
