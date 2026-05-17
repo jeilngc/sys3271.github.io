@@ -122,7 +122,7 @@ function loadAnnouncements() {
         wrapper.appendChild(annElement);
     });
 
-    if (sorted.length > 5) {
+    if (sorted.length > 2) {
         container.classList.remove('hidden');
         showMoreBtn.innerText = isShowingAll ? "Show Less" : "Show More";
     } else {
