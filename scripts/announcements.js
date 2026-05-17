@@ -70,10 +70,9 @@ const ANNOUNCEMENTS = [
         message: "EVENTS FOR 4/28:\n\n• BT1 – 8pm. PHT (12 UTC)\n• BT2 – 10:00pm. PHT (14:00 UTC)\n\n• Alliance Showdown Day 2 - Best to use:\nHero Shards / Expert sigil / Book of knowledge\n\n• Snowbuster\n• Vision of dawn",
         date: "2026-04-28"
     },
-    // ... (rest of your ANNOUNCEMENTS array – keep it identical)
 ];
 
-let isShowingAll = false;
+let visibleCount = 3; // start with 3
 
 function loadAnnouncements() {
     const wrapper = document.getElementById('announcement-wrapper');
@@ -108,7 +107,12 @@ function loadAnnouncements() {
     sorted.forEach((ann, index) => {
         const annElement = document.createElement('div');
         annElement.className = "bg-gradient-to-r from-ice-mid to-ice-light border-l-4 border-sys-gold rounded-r-lg p-4 shadow-lg transition-all hover:scale-[1.01]";
-        if (index > 4 && !isShowingAll) annElement.classList.add('announcement-hidden');
+
+        // Hide if index is beyond the current visible count
+        if (index >= visibleCount) {
+            annElement.classList.add('announcement-hidden');
+        }
+
         annElement.innerHTML = `
             <div class="flex items-start">
                 <div class="ml-3 w-full">
@@ -122,11 +126,19 @@ function loadAnnouncements() {
         wrapper.appendChild(annElement);
     });
 
-    if (sorted.length > 2) {
+    // Show the button only if there are more announcements to reveal
+    if (sorted.length > visibleCount) {
         container.classList.remove('hidden');
-        showMoreBtn.innerText = isShowingAll ? "Show Less" : "Show More";
+        showMoreBtn.innerText = "Show More"; // Always “Show More”
     } else {
         container.classList.add('hidden');
     }
 }
 
+// Button click handler (place after DOM is ready or inline)
+document.getElementById('show-more-btn').addEventListener('click', () => {
+    visibleCount += 3;
+    loadAnnouncements();
+});
+
+// Ensure getRelativeTime() exists – defined elsewhere
