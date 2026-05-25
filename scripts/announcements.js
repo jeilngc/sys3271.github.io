@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 70,
+    message: "EVENTS FOR 5/25:\n\n• Alliance Showdown DAY 1\n- Escort&Raid truck, FC for building & research, All speedups, Gathering rss, Gems, Expert sigils (exc common sigils), Book of knowledge.\n• Mercenary Captain - 9PM PHT (13UTC)\n• Tundra trade\n• Foundry\n• Armament\n• Alliance champ (same guide)\n• Hall of heroes\n\nLAST DAY - Mercenary",
+    date: "2026-05-25"
+},
+{
     id: 69,
     message: "EVENTS FOR 5/19:\n\n• SVS Prep DAY 2\n- FC & Hero shard, Wheel, Gathering, Expert skill & sigils, Book of knowledge.\n\n• Crazy Joe - 9PM PHT (13UTC)\nNOTE: Will send separate guide.\n\n• Frostfire mine\n• Defeat nearby beasts\n• Lucky Wheel\n\nLAST DAY - Flame & Fangs, Hall of Heroes",
     date: "2026-05-19"
