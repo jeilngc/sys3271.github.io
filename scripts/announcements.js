@@ -1,10 +1,5 @@
 const ANNOUNCEMENTS = [
 {
-    id: 70,
-    message: "EVENTS FOR 5/19:\n\n• SVS Prep DAY 2\n- FC & Hero shard, Wheel, Gathering, Expert skill & sigils, Book of knowledge.\n\n• Crazy Joe - 9PM PHT (13UTC)\nNOTE: Will send separate guide.\n\n• Frostfire mine\n• Defeat nearby beasts\n• Lucky Wheel\n\nLAST DAY - Flame & Fangs, Hall of Heroes",
-    date: "2026-05-19"
-},
-{
     id: 69,
     message: "EVENTS FOR 5/19:\n\n• SVS Prep DAY 2\n- FC & Hero shard, Wheel, Gathering, Expert skill & sigils, Book of knowledge.\n\n• Crazy Joe - 9PM PHT (13UTC)\nNOTE: Will send separate guide.\n\n• Frostfire mine\n• Defeat nearby beasts\n• Lucky Wheel\n\nLAST DAY - Flame & Fangs, Hall of Heroes",
     date: "2026-05-19"
