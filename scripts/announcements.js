@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 71,
+    message: "EVENTS FOR 5/30:\n\n• BT1 – 8:00PM PHT (12UTC)\n• BT2 – 10:00PM PHT (14UTC)\n\n• Alliance Showdown DAY 6\n---> Escort&Raid Truck, Chief charm, Chief gear, Essence stone, Widgets, Hero shards, Mithril, Pet advance, Common&Advanced wildmark, FC building&research, ALL speedups, Gems.\n\nLAST DAY - Tundra trade, Armament, Mia's fortune",
+    date: "2026-05-30"
+},
+{
     id: 70,
     message: "EVENTS FOR 5/25:\n\n• Alliance Showdown DAY 1\n- Escort&Raid truck, FC for building & research, All speedups, Gathering rss, Gems, Expert sigils (exc common sigils), Book of knowledge.\n• Mercenary Captain - 9PM PHT (13UTC)\n• Tundra trade\n• Foundry\n• Armament\n• Alliance champ (same guide)\n• Hall of heroes\n\nLAST DAY - Mercenary",
     date: "2026-05-25"
