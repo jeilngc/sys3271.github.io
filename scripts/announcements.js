@@ -1,5 +1,10 @@
 const ANNOUNCEMENTS = [
 {
+    id: 72,
+    message: "EVENTS FOR 6/3:\n\n• BT1 – 8:00PM PHT (12UTC)\n• BT2 – 10:00PM PHT (14UTC)\n\n• KOI DAY 3\nPet advanced, Common&Advanced wild mark, Expert Sigils, Book of knowledge, Learn Speedup, Chief charm, Lucky wheel, Hero Shards.\n• Dreamscape Memory\n• Shining City Pack\n\nLAST DAY - Defeat beasts",
+    date: "2026-06-03"
+},
+{
     id: 71,
     message: "EVENTS FOR 5/30:\n\n• BT1 – 8:00PM PHT (12UTC)\n• BT2 – 10:00PM PHT (14UTC)\n\n• Alliance Showdown DAY 6\n---> Escort&Raid Truck, Chief charm, Chief gear, Essence stone, Widgets, Hero shards, Mithril, Pet advance, Common&Advanced wildmark, FC building&research, ALL speedups, Gems.\n\nLAST DAY - Tundra trade, Armament, Mia's fortune",
     date: "2026-05-30"
