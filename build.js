@@ -3,7 +3,7 @@ const crypto = require('crypto');
 const path = require('path');
 
 // Files/folders to ignore
-const ignore = ['build.js', 'node_modules', '.git', '.github'];
+const ignore = ['build.js', 'node_modules', '.git', '.github', 'functions', 'admin'];
 
 // Recursively find all .css and .js files (excluding ignored paths)
 function findFiles(dir, extension, result = []) {
