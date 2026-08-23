@@ -1,10 +1,18 @@
-const R4_OFFICERS = [
-    { name: "JEI", role: "Site Admin • Events", icon: "code", color: "text-sys-gold" },
-    { name: "PSY", role: "Events & Comms", icon: "bullhorn", color: "text-slate-400" },
-    { name: "HADES", role: "Events & Comms", icon: "bullhorn", color: "text-slate-400" },
-    { name: "JM", role: "Events & Comms", icon: "bullhorn", color: "text-slate-400" },
-    { name: "KERINA", role: "Comms • Diplomacy", icon: "scroll", color: "text-slate-400", span: true }
-];
+// =========================
+// OFFICERS — now backed by /api/officers (D1)
+// =========================
+let R4_OFFICERS = [];
+
+async function fetchOfficers() {
+    try {
+        const res = await fetch('/api/officers');
+        if (!res.ok) throw new Error('Failed to fetch officers');
+        R4_OFFICERS = await res.json();
+    } catch (err) {
+        console.error(err);
+        R4_OFFICERS = [];
+    }
+}
 
 function renderOfficers() {
     const grid = document.getElementById('r4-grid');
@@ -22,3 +30,7 @@ function renderOfficers() {
     `).join('');
 }
 
+async function initOfficers() {
+    await fetchOfficers();
+    renderOfficers();
+}

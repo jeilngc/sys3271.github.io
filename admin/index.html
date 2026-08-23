@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SYS Alliance · Dashboard</title>
+<meta name="robots" content="noindex, nofollow">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script>
+  tailwind.config = {
+    theme: { extend: { colors: {
+      'ice-dark': '#0f172a', 'ice-mid': '#1e293b', 'ice-light': '#334155',
+      'frost': '#38bdf8', 'sys-gold': '#fbbf24'
+    } } }
+  }
+</script>
+<style>
+  body { background:#0f172a; color:#e2e8f0; font-family: system-ui, sans-serif; }
+  .glass { background: rgba(30,41,59,0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+  input, textarea, select {
+    background:#1e293b; border:1px solid #334155; color:#e2e8f0; border-radius:0.5rem;
+    padding:0.5rem 0.75rem; width:100%; font-size:0.875rem;
+  }
+  input:focus, textarea:focus, select:focus { outline:none; border-color:#38bdf8; }
+  label { font-size:0.7rem; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8; font-weight:700; display:block; margin-bottom:0.25rem; }
+  .btn { padding:0.5rem 1rem; border-radius:0.5rem; font-size:0.8rem; font-weight:700; text-transform:uppercase; cursor:pointer; transition:all .15s; }
+  .btn-primary { background:#38bdf8; color:#0f172a; }
+  .btn-primary:hover { background:#7dd3fc; }
+  .btn-danger { background:rgba(239,68,68,0.15); color:#f87171; border:1px solid rgba(239,68,68,0.3); }
+  .btn-danger:hover { background:rgba(239,68,68,0.25); }
+  .btn-secondary { background:#334155; color:#e2e8f0; }
+  .btn-secondary:hover { background:#475569; }
+  .tab-btn.active { background:#38bdf8; color:#0f172a; }
+  .row-card { background:#1e293b; border:1px solid #334155; border-radius:0.75rem; padding:1rem; }
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- LOGIN SCREEN -->
+<div id="login-screen" class="min-h-screen flex items-center justify-center p-4">
+  <div class="glass rounded-xl p-8 w-full max-w-sm">
+    <h1 class="text-xl font-bold text-white uppercase tracking-wide mb-1 flex items-center gap-2">
+      <i class="fa-solid fa-snowflake text-frost"></i> SYS Dashboard
+    </h1>
+    <p class="text-xs text-gray-400 mb-6">Enter the shared admin password to continue.</p>
+    <form id="login-form" class="space-y-4">
+      <div>
+        <label>Password</label>
+        <input type="password" id="login-password" required autocomplete="current-password">
+      </div>
+      <p id="login-error" class="text-red-400 text-xs hidden">Incorrect password.</p>
+      <button type="submit" class="btn btn-primary w-full">Log In</button>
+    </form>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard-screen" class="hidden max-w-5xl mx-auto p-4 pb-16">
+  <div class="flex items-center justify-between mb-6 pt-6">
+    <h1 class="text-xl font-bold text-white uppercase tracking-wide flex items-center gap-2">
+      <i class="fa-solid fa-snowflake text-frost"></i> SYS Dashboard
+    </h1>
+    <div class="flex gap-2">
+      <a href="/" class="btn btn-secondary"><i class="fa-solid fa-house"></i> View Site</a>
+      <button id="logout-btn" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> Log Out</button>
+    </div>
+  </div>
+
+  <div class="flex gap-2 mb-6 flex-wrap">
+    <button class="tab-btn btn btn-secondary active" data-tab="giftcodes">Gift Codes</button>
+    <button class="tab-btn btn btn-secondary" data-tab="announcements">Announcements</button>
+    <button class="tab-btn btn btn-secondary" data-tab="achievements">Achievements</button>
+    <button class="tab-btn btn btn-secondary" data-tab="officers">Officers</button>
+  </div>
+
+  <!-- GIFT CODES TAB -->
+  <section id="tab-giftcodes" class="tab-panel space-y-4">
+    <form id="giftcode-form" class="glass rounded-xl p-4 grid grid-cols-1 md:grid-cols-4 gap-3 items-end">
+      <input type="hidden" id="gc-id">
+      <div><label>Code</label><input id="gc-code" required></div>
+      <div><label>Date Added</label><input type="date" id="gc-date" required></div>
+      <div class="md:col-span-2"><label>Description</label><input id="gc-desc" placeholder="Redeem in-game for rewards"></div>
+      <div class="md:col-span-4 flex gap-2">
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Save Code</button>
+        <button type="button" id="gc-cancel" class="btn btn-secondary hidden">Cancel Edit</button>
+      </div>
+    </form>
+    <div id="giftcode-list" class="space-y-2"></div>
+  </section>
+
+  <!-- ANNOUNCEMENTS TAB -->
+  <section id="tab-announcements" class="tab-panel space-y-4 hidden">
+    <form id="announcement-form" class="glass rounded-xl p-4 grid grid-cols-1 md:grid-cols-4 gap-3 items-end">
+      <input type="hidden" id="an-id">
+      <div><label>Date</label><input type="date" id="an-date" required></div>
+      <div class="md:col-span-3"><label>Message (supports line breaks)</label><textarea id="an-message" rows="4" required></textarea></div>
+      <div class="md:col-span-4 flex gap-2">
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Save Announcement</button>
+        <button type="button" id="an-cancel" class="btn btn-secondary hidden">Cancel Edit</button>
+      </div>
+    </form>
+    <div id="announcement-list" class="space-y-2"></div>
+  </section>
+
+  <!-- ACHIEVEMENTS TAB -->
+  <section id="tab-achievements" class="tab-panel space-y-4 hidden">
+    <form id="achievement-form" class="glass rounded-xl p-4 grid grid-cols-1 md:grid-cols-4 gap-3 items-end">
+      <input type="hidden" id="ach-id">
+      <div class="md:col-span-2"><label>Title</label><input id="ach-title" required></div>
+      <div><label>Date</label><input type="date" id="ach-date" required></div>
+      <div>
+        <label>Category</label>
+        <select id="ach-category">
+          <option value="ranking">Ranking</option>
+          <option value="damage">Damage</option>
+          <option value="events">Events</option>
+          <option value="war">War</option>
+          <option value="diplomacy">Diplomacy</option>
+          <option value="recruitment">Recruitment</option>
+        </select>
+      </div>
+      <div class="md:col-span-3"><label>Description</label><input id="ach-desc"></div>
+      <div><label>Damage (optional)</label><input id="ach-damage" placeholder="e.g. 20.4B"></div>
+      <div class="md:col-span-3"><label>Image path (optional)</label><input id="ach-image" placeholder="img/achievements/example.jpg"></div>
+      <div class="flex items-center gap-2">
+        <input type="checkbox" id="ach-highlight" style="width:auto;">
+        <label class="!mb-0">Highlight as new record</label>
+      </div>
+      <div class="md:col-span-4 flex gap-2">
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Save Achievement</button>
+        <button type="button" id="ach-cancel" class="btn btn-secondary hidden">Cancel Edit</button>
+      </div>
+    </form>
+    <div id="achievement-list" class="space-y-2"></div>
+  </section>
+
+  <!-- OFFICERS TAB -->
+  <section id="tab-officers" class="tab-panel space-y-4 hidden">
+    <form id="officer-form" class="glass rounded-xl p-4 grid grid-cols-1 md:grid-cols-4 gap-3 items-end">
+      <input type="hidden" id="of-id">
+      <div><label>Name</label><input id="of-name" required></div>
+      <div class="md:col-span-2"><label>Role</label><input id="of-role" required></div>
+      <div><label>Sort Order</label><input type="number" id="of-sort" value="0"></div>
+      <div><label>Icon (Font Awesome name)</label><input id="of-icon" placeholder="e.g. bullhorn"></div>
+      <div>
+        <label>Color</label>
+        <select id="of-color">
+          <option value="text-sys-gold">Gold</option>
+          <option value="text-slate-400">Slate</option>
+          <option value="text-frost">Frost</option>
+          <option value="text-red-400">Red</option>
+          <option value="text-green-400">Green</option>
+        </select>
+      </div>
+      <div class="flex items-center gap-2">
+        <input type="checkbox" id="of-span" style="width:auto;">
+        <label class="!mb-0">Span 2 columns</label>
+      </div>
+      <div class="md:col-span-4 flex gap-2">
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Save Officer</button>
+        <button type="button" id="of-cancel" class="btn btn-secondary hidden">Cancel Edit</button>
+      </div>
+    </form>
+    <div id="officer-list" class="space-y-2"></div>
+  </section>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+name = "sys-alliance"
+compatibility_date = "2024-09-01"
+pages_build_output_dir = "."
+
+[[d1_databases]]
+binding = "DB"                      # accessible in Functions as env.DB
+database_name = "sys-alliance-db"
+database_id = "REPLACE_WITH_YOUR_DATABASE_ID"   # from `wrangler d1 create`
+
+# Secrets (set these with `wrangler pages secret put NAME`, NOT here):
+#   ADMIN_PASSWORD   - the shared dashboard password
+#   SESSION_SECRET    - random long string used to sign session cookies
