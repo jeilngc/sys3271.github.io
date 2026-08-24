@@ -152,4 +152,3 @@ function setupFloatingBear() {
         bearhuntSection.scrollIntoView({ behavior: 'smooth' });
     });
 }
-

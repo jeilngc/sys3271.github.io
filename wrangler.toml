@@ -1,0 +1,10 @@
+name = "sys-alliance"
+compatibility_date = "2024-09-01"
+pages_build_output_dir = "."
+
+[[d1_databases]]
+binding = "sys_alliance_db_test"                   
+database_name = "sys-alliance-db-test"
+database_id = "c01bbfdb-1c81-465b-b355-be13634ac0ec"   
+
+

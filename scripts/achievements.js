@@ -1,16 +1,7 @@
-const ACHIEVEMENTS = [
-    {
-        id: 3,
-        title: "BEAR HUNT  DAMAGE BREAKTHROUGH",
-        description: "Smashed previous record with 20.4B damage in Bear Hunt BT2 session",
-        date: "2026-04-24",
-        category: "damage",
-        damage: "20.4B",
-        image: "img/achievements/bearhunt-record.jpg",
-        highlight: true
-    },
-    // ... (rest of the array unchanged)
-];
+// =========================
+// ACHIEVEMENTS — now backed by /api/achievements (D1)
+// =========================
+let ACHIEVEMENTS = [];
 
 const ACHIEVEMENT_ICONS = {
     ranking: "trophy",
@@ -40,6 +31,17 @@ const CATEGORY_COLORS = {
 };
 
 let isShowingAllAchievements = false;
+
+async function fetchAchievements() {
+    try {
+        const res = await fetch('/api/achievements');
+        if (!res.ok) throw new Error('Failed to fetch achievements');
+        ACHIEVEMENTS = await res.json();
+    } catch (err) {
+        console.error(err);
+        ACHIEVEMENTS = [];
+    }
+}
 
 function loadAchievements() {
     const wrapper = document.getElementById('achievement-wrapper');
@@ -167,3 +169,8 @@ function setupFloatingAchievements() {
     }
 }
 
+async function initAchievements() {
+    await fetchAchievements();
+    loadAchievements();
+    setupFloatingAchievements();
+}

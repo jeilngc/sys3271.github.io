@@ -1,19 +1,8 @@
 // =========================
-// GIFT CODES DATA 
+// GIFT CODES — now backed by /api/giftcodes (D1)
 // =========================
-const GIFT_CODES = [
-		{ code: "WOSFAMILY26", dateAdded: "2026-05-15", description: "Redeem in-game for rewards" },
-		{ code: "LoveMom2026", dateAdded: "2026-05-10", description: "Redeem in-game for rewards" },
-    { code: "ChildrensDay505", dateAdded: "2026-05-05", description: "Redeem in-game for rewards" },
-    { code: "OFFICIALSTORE", dateAdded: "2026-04-28", description: "Redeem in-game for rewards" },
-    { code: "GW2026JP", dateAdded: "2026-04-30", description: "Redeem in-game for rewards" },
-    { code: "HappyMayDay", dateAdded: "2026-05-01", description: "Redeem in-game or Link for rewards" },
-    // ... add the rest of your codes here; include `description` if you want a short note
-];
+let GIFT_CODES = [];
 
-// =========================
-// HELPER: Detect "new today"
-// =========================
 function isNewCodeToday(dateString) {
     const added = new Date(dateString);
     const now = new Date();
@@ -21,21 +10,23 @@ function isNewCodeToday(dateString) {
     return diffDays <= 3;
 }
 
-// Map codes to a simple "category" if needed (all are OFFICIAL by default)
 const GIFT_CODE_CATEGORY = "official";
-const GIFT_CATEGORY_DISPLAY = {
-    official: "OFFICIAL CODE"
-};
-const GIFT_CATEGORY_COLORS = {
-    official: { text: "text-blue-400", bg: "bg-blue-500/20" }
-};
+const GIFT_CATEGORY_DISPLAY = { official: "OFFICIAL CODE" };
+const GIFT_CATEGORY_COLORS = { official: { text: "text-blue-400", bg: "bg-blue-500/20" } };
 
-// Show more / less state
 let isShowingAllGiftCodes = false;
 
-// =========================
-// RENDER GIFT CODES CARDS
-// =========================
+async function fetchGiftCodes() {
+    try {
+        const res = await fetch('/api/giftcodes');
+        if (!res.ok) throw new Error('Failed to fetch gift codes');
+        GIFT_CODES = await res.json();
+    } catch (err) {
+        console.error(err);
+        GIFT_CODES = [];
+    }
+}
+
 function loadGiftCodes() {
     const wrapper = document.getElementById('gift-code-wrapper');
     const moreContainer = document.getElementById('gift-more-container');
@@ -55,18 +46,15 @@ function loadGiftCodes() {
         const icon = "gift";
         const displayText = GIFT_CATEGORY_DISPLAY[GIFT_CODE_CATEGORY] || "GIFT CODE";
 
-        // Highlight border if new
         const borderClass = isNew ? 'border-l-4 border-red-400' : `border-l-4 ${categoryColor.text}`;
         const bgClass = isNew ? 'from-red-500/5 to-red-500/10' : 'from-ice-mid to-ice-light';
 
         card.className = `bg-gradient-to-r ${bgClass} ${borderClass} rounded-r-lg p-4 shadow-lg transition-all hover:scale-[1.01]`;
 
-        // Add extra ring for new codes
         if (isNew) {
             card.classList.add('ring-1', 'ring-red-400/30');
         }
 
-        // Hide cards beyond the first 3 unless "Show More" is active
         if (index > 2 && !isShowingAllGiftCodes) {
             card.classList.add('hidden');
         }
@@ -74,7 +62,6 @@ function loadGiftCodes() {
         const iconColor = isNew ? "text-red-400 animate-pulse" : categoryColor.text;
         const iconBg = isNew ? 'bg-red-500/20' : 'bg-gray-500/10';
 
-        // Build inner HTML (similar to achievement card)
         let innerHTML = `
             <div class="flex items-start">
                 <div class="mr-4 flex-shrink-0 relative">
@@ -94,7 +81,6 @@ function loadGiftCodes() {
                         <span class="text-[9px] ${isNew ? 'text-red-300' : 'text-gray-500'} font-bold uppercase">${getRelativeTime(item.dateAdded)}</span>
                     </div>
                     ${item.description ? `<p class="text-sm ${isNew ? 'text-gray-200' : 'text-gray-300'} mb-3">${item.description}</p>` : ''}
-                    <!-- Code box with copy button, styled like the damage score box in achievements -->
                    <div class="mt-3 p-3 rounded-lg bg-gray-800/50 border ${isNew ? 'border-red-400/30' : 'border-gray-700'}">
     <div class="flex items-center justify-between">
         <div class="flex items-center gap-2">
@@ -106,7 +92,6 @@ function loadGiftCodes() {
         </div>
     </div>
 </div>
-                    <!-- Footer meta -->
                     <div class="flex items-center gap-2 mt-3 text-[10px] ${isNew ? 'text-red-300' : 'text-gray-500'}">
                         <i class="fa-solid fa-calendar"></i>
                         <span>${item.dateAdded}</span>
@@ -120,7 +105,6 @@ function loadGiftCodes() {
         wrapper.appendChild(card);
     });
 
-    // Attach copy button listeners
     document.querySelectorAll('#gift-code-wrapper .copy-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const code = btn.getAttribute('data-code');
@@ -134,7 +118,6 @@ function loadGiftCodes() {
         });
     });
 
-    // Show more/less button
     if (sorted.length > 3 && moreContainer) {
         moreContainer.classList.remove('hidden');
         if (moreBtn) {
@@ -145,9 +128,13 @@ function loadGiftCodes() {
     }
 }
 
-// =========================
-// FLOATING BUTTON LOGIC
-// =========================
+// Convenience: fetch then render (used by main.js on page load)
+async function initGiftCodes() {
+    await fetchGiftCodes();
+    loadGiftCodes();
+    setupFloatingGiftCodes();
+}
+
 function hasNewGiftCodeToday() {
     return GIFT_CODES.some(code => isNewCodeToday(code.dateAdded));
 }

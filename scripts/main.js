@@ -12,15 +12,14 @@ function createSnow() {
 }
 
 // Consolidated initialisation
-document.addEventListener('DOMContentLoaded', () => {
-    // Render static content
-    
-    loadGiftCodes();
-    setupFloatingGiftCodes();
-    renderOfficers();
-    loadAnnouncements();
-    loadAchievements();
-    setupFloatingAchievements();
+document.addEventListener('DOMContentLoaded', async () => {
+    // Render dynamic content — each fetches from the API then renders
+    await Promise.all([
+        initGiftCodes(),
+        initOfficers(),
+        initAnnouncements(),
+        initAchievements()
+    ]);
 
     // Bear hunt live timers
     updateBearHunt();
@@ -34,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Show more/less announcements
     document.getElementById('show-more-btn')?.addEventListener('click', () => {
-        isShowingAll = !isShowingAll;
+        visibleCount += 3;
         loadAnnouncements();
     });
 
@@ -43,9 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
         isShowingAllAchievements = !isShowingAllAchievements;
         loadAchievements();
     });
+
     document.getElementById('gift-more-btn')?.addEventListener('click', () => {
-    isShowingAllGiftCodes = !isShowingAllGiftCodes;
-    loadGiftCodes();
+        isShowingAllGiftCodes = !isShowingAllGiftCodes;
+        loadGiftCodes();
     });
 });
-
