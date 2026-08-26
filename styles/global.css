@@ -48,6 +48,40 @@ body {
     border-top: 1px solid rgba(56, 189, 248, 0.3);
 }
 
+/* Bottom nav — active (in-view) section link */
+.nav-dock a.nav-link {
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+.nav-dock a.nav-link:focus,
+.nav-dock a.nav-link:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+.nav-dock a.nav-link.active-link {
+    transform: translateY(-3px) scale(1.08);
+}
+.nav-dock a.nav-link.active-link i {
+    filter: drop-shadow(0 0 6px currentColor);
+}
+.nav-dock a.nav-link.active-link span {
+    text-shadow: 0 0 6px currentColor;
+}
+/* Small dot indicator above the active icon */
+.nav-dock a.nav-link.active-link::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 6px currentColor;
+}
+
 /* Scroll margin for sections */
 section {
     scroll-margin-top: 100px;

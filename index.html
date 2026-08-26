@@ -299,9 +299,9 @@
     <a href="#achievements-section" class="block transition-transform hover:scale-110 active:scale-95">
         <div class="relative">
             <div class="absolute -inset-4 bg-sys-gold/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <img src="img/achievements/achievement.png" 
+            <img src="achievement.png" 
                  class="relative w-16 h-16 rounded-full border-4 border-sys-gold/50 shadow-lg bear-pulse"
-                 onerror="this.onerror=null; this.style.display='none'; this.parentElement.classList.add('fallback-active'); this.parentElement.innerHTML='<div class=\'relative w-16 h-16 rounded-full border-4 border-sys-gold/50 bg-amber-800 flex items-center justify-center bear-pulse\'><i class=\'fa-solid fa-trophy text-sys-gold text-2xl\'></i></div>' + this.parentElement.innerHTML;">
+                 onerror="this.outerHTML='<div class=\'relative w-16 h-16 rounded-full border-4 border-sys-gold/50 bg-amber-800 flex items-center justify-center bear-pulse\'><i class=\'fa-solid fa-trophy text-sys-gold text-2xl\'></i></div>';">
             
         </div>
     </a>
@@ -311,7 +311,7 @@
     <a href="#bearhunt-section" class="block transition-transform hover:scale-110 active:scale-95">
         <div class="relative">
             <div class="absolute -inset-4 bg-frost/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <img src="img/bear-hunt/BT.png" 
+            <img src="BT.png" 
                  class="relative w-16 h-16 rounded-full border-4 border-sys-gold/50 shadow-lg bear-pulse"
                  onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'relative w-16 h-16 rounded-full border-4 border-sys-gold/50 bg-amber-900 flex items-center justify-center bear-pulse\'><i class=\'fa-solid fa-paw text-amber-400 text-2xl\'></i></div>'">
             <div class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-red-500 flex items-center justify-center">
@@ -388,30 +388,32 @@
 
     <!-- Bottom Navigation -->
 <nav class="fixed bottom-0 left-0 right-0 z-[60] nav-dock px-2 py-3">
+    <!-- Section Progress Bar (segments populated by JS, one per nav section) -->
+    <div id="scroll-progress-track" class="absolute left-0 right-0 -top-[3px] h-[3px] flex gap-[3px]"></div>
     <div class="max-w-xl mx-auto flex justify-around items-center text-gray-400">
-        <a href="#leadership-section" class="flex flex-col items-center gap-1 hover:text-red-400 transition-colors px-1">
+        <a href="#leadership-section" data-section="leadership-section" data-active-color="#f87171" class="nav-link flex flex-col items-center gap-1 hover:text-red-400 transition-colors px-1">
             <i class="fa-solid fa-crown text-sm"></i>
             <span class="text-[9px] uppercase font-bold">Leaders</span>
         </a>
-        <a href="#rules-section" class="flex flex-col items-center gap-1 hover:text-sys-gold transition-colors px-1">
+        <a href="#rules-section" data-section="rules-section" data-active-color="#fbbf24" class="nav-link flex flex-col items-center gap-1 hover:text-sys-gold transition-colors px-1">
             <i class="fa-solid fa-scale-balanced text-sm"></i>
             <span class="text-[9px] uppercase font-bold">Rules</span>
         </a>
-        <a href="#updates-section" class="flex flex-col items-center gap-1 highlight-updates px-1">
+        <a href="#updates-section" data-section="updates-section" data-active-color="#fb923c" class="nav-link flex flex-col items-center gap-1 highlight-updates px-1">
             <i class="fa-solid fa-bullhorn text-lg"></i>
             <span class="text-[9px] uppercase font-bold">Updates</span>
         </a>
         <!-- New Achievements shortcut -->
-        <a href="#achievements-section" class="flex flex-col items-center gap-1 hover:text-sys-gold transition-colors px-1">
+        <a href="#achievements-section" data-section="achievements-section" data-active-color="#fbbf24" class="nav-link flex flex-col items-center gap-1 hover:text-sys-gold transition-colors px-1">
             <i class="fa-solid fa-trophy text-sm"></i>
             <span class="text-[9px] uppercase font-bold">Achieve</span>
         </a>
-        <a href="#bearhunt-section" class="flex flex-col items-center gap-1 hover:text-frost transition-colors px-1">
+        <a href="#bearhunt-section" data-section="bearhunt-section" data-active-color="#38bdf8" class="nav-link flex flex-col items-center gap-1 hover:text-frost transition-colors px-1">
             <i class="fa-solid fa-paw text-sm"></i>
             <span class="text-[9px] uppercase font-bold">Bear</span>
         </a>
 
-        <a href="#gift-section" class="flex flex-col items-center gap-1 hover:text-pink-400 transition-colors px-1">
+        <a href="#gift-section" data-section="gift-section" data-active-color="#f472b6" class="nav-link flex flex-col items-center gap-1 hover:text-pink-400 transition-colors px-1">
             <i class="fa-solid fa-gift text-sm"></i>
             <span class="text-[9px] uppercase font-bold">Codes</span>
         </a>
