@@ -229,6 +229,8 @@ function renderLegend() {
 
 async function initCalendar() {
     await fetchEvents();
+    calSelectedDate = todayStr();
+    calViewDate = new Date();
     renderCalendarGrid();
     renderEventList();
     renderLegend();
