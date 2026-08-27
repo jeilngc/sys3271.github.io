@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>❄️ WHITEOUT SURVIVAL · UPDATE LOG</title>
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE (from style.css spirit) ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(56, 189, 248, 0.1) 0%, transparent 20%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.5;
+            padding: 0 1rem 6rem;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #38bdf8; }
+
+        /* Glass panel (core style) */
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            padding: 1.5rem 1.8rem;
+            box-shadow: 0 20px 35px -8px rgba(0,0,0,0.5);
+        }
+
+        /* Category Colors — exactly as in style.css */
+        .text-yellow-400 { color: #fbbf24; }
+        .bg-yellow-500\/20 { background-color: rgba(251, 191, 36, 0.2); }
+        .text-red-400 { color: #f87171; }
+        .bg-red-500\/20 { background-color: rgba(239, 68, 68, 0.2); }
+        .text-red-500 { color: #ef4444; }
+        .bg-red-600\/20 { background-color: rgba(220, 38, 38, 0.2); }
+        .text-blue-400 { color: #60a5fa; }
+        .bg-blue-500\/20 { background-color: rgba(59, 130, 246, 0.2); }
+        .text-green-400 { color: #4ade80; }
+        .bg-green-500\/20 { background-color: rgba(34, 197, 94, 0.2); }
+        .text-purple-400 { color: #a855f7; }
+        .bg-purple-500\/20 { background-color: rgba(168, 85, 247, 0.2); }
+
+        /* Title effect */
+        .font-heading {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.2);
+            letter-spacing: 0.05em;
+            font-weight: 700;
+        }
+
+        /* Achievements hover + animation */
+        #achievement-wrapper > div:hover {
+            transform: translateY(-2px);
+            transition: transform 0.3s ease;
+        }
+
+        .inline-flex > div {
+            transition: all 0.3s ease;
+        }
+
+        .inline-flex > div:hover {
+            transform: translateY(-2px);
+        }
+
+        .inline-flex > div:hover .fa-trophy,
+        .inline-flex > div:hover .fa-users,
+        .inline-flex > div:hover .fa-shield-halved {
+            animation: bounce 0.5s;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        /* Snowflakes (fixed) */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: #fff;
+            opacity: 0.5;
+            z-index: 0;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(105vh); }
+        }
+
+        /* Navigation dock style */
+        .nav-dock {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        section {
+            scroll-margin-top: 100px;
+        }
+
+        /* Highlight new */
+        .highlight-updates {
+            color: #fb923c !important;
+            text-shadow: 0 0 10px rgba(251, 146, 60, 0.5);
+        }
+
+        /* Status pulse, bear pulse etc */
+        .status-pulse {
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(34, 197, 94, 0.2); }
+            50% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.5); }
+        }
+
+        @keyframes glow-border {
+            0%, 100% { border-color: rgba(251, 191, 36, 0.5); }
+            50% { border-color: rgba(251, 191, 36, 0.8); }
+        }
+
+        .bear-pulse {
+            animation: gentle-pulse 2s infinite ease-in-out, glow-border 2s infinite ease-in-out;
+        }
+
+        @keyframes gentle-pulse {
+            0%,100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .pulse-dot {
+            animation: pulse-dot 1.5s infinite ease-in-out;
+        }
+        @keyframes pulse-dot {
+            0%,100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .animate-pulse {
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0%,100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* CUSTOM LAYOUT */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 5;
+        }
+
+        .header-icon {
+            font-size: 2.2rem;
+            margin-right: 0.5rem;
+            filter: drop-shadow(0 0 6px #38bdf8);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            backdrop-filter: blur(4px);
+        }
+
+        .update-card {
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 1.2rem;
+            padding: 1.2rem 1.5rem;
+            transition: all 0.2s;
+        }
+
+        .update-card:hover {
+            border-color: rgba(56,189,248,0.25);
+            background: rgba(30,41,59,0.7);
+        }
+
+        hr {
+            border: 0.5px solid #334155;
+            margin: 1.2rem 0;
+        }
+
+        .divider-ice {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #38bdf8, transparent);
+            margin: 2rem 0 1rem;
+        }
+
+        .flame-tag {
+            background: linear-gradient(145deg, #b45309, #ea580c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            text-shadow: 0 0 8px #f59e0b;
+        }
+
+        /* utility */
+        .flex { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 0.8rem; }
+        .mt-4 { margin-top: 1.5rem; }
+        .mb-2 { margin-bottom: 0.75rem; }
+        .text-sm { font-size: 0.9rem; color: #b0c4de; }
+
+        /* mimic inline-flex stats */
+        .stat-badge {
+            background: #1e293b;
+            border-radius: 60px;
+            padding: 0.3rem 1rem 0.3rem 0.8rem;
+            border: 1px solid #334155;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Snowflakes (like original) -->
+<script>
+    (function(){
+        for(let i=0;i<25;i++){
+            let flake = document.createElement('div');
+            flake.classList.add('snowflake');
+            flake.innerHTML = '❄️';
+            flake.style.left = Math.random()*100+'%';
+            flake.style.animationDuration = (Math.random()*8 + 6)+'s';
+            flake.style.fontSize = (Math.random()*14 + 10)+'px';
+            flake.style.opacity = Math.random()*0.4+0.2;
+            document.body.appendChild(flake);
+        }
+    })();
+</script>
+
+<div class="container">
+    <!-- HEADER (glass panel) -->
+    <div class="glass-panel" style="margin-top: 2rem; margin-bottom: 2rem;">
+        <div class="flex" style="justify-content: space-between;">
+            <div class="flex">
+                <i class="fas fa-snowflake header-icon text-blue-400"></i>
+                <h1 class="font-heading" style="font-size: 2.2rem; color: #e2e8f0;">See You Sooner <span style="color: #38bdf8;">Alliance</span></h1>
+            </div>
+            <div class="stat-badge status-pulse" style="gap: 4px;">
+                <span class="pulse-dot" style="display: inline-block; width: 10px; height: 10px; background: #4ade80; border-radius: 50%; margin-right: 6px;"></span>
+                <span class="text-green-400"><i class="fas fa-cloud-sun"></i>New Update</span>
+            </div>
+        </div>
+        <div class="flex" style="margin-top: 0.8rem;">
+            <span class="badge bg-red-500/20 text-red-400"><i class="fas fa-fire-flame-curved"></i> FLAME TECH UNLOCK</span>
+            <span class="badge bg-purple-500/20 text-purple-400"><i class="fas fa-trophy"></i> ICEFIRE WARHYMN</span>
+        </div>
+    </div>
+
+    <!-- 🆕 NEW CONTENT SECTION -->
+    <section>
+        <div class="flex mb-2">
+            <i class="fas fa-star text-yellow-400" style="font-size: 1.8rem;"></i>
+            <h2 class="font-heading" style="font-size: 1.9rem;">NEW CONTENT</h2>
+            <span class="badge bg-yellow-500/20 text-yellow-400" style="margin-left: auto;"><i class="fas fa-gem"></i> 4 major updates</span>
+        </div>
+
+        <div class="grid-2" id="achievement-wrapper">
+            <!-- 1. Flame Tech -->
+            <div class="update-card bear-pulse" style="border-left: 6px solid #f97316;">
+                <div class="flex">
+                    <i class="fas fa-fire text-2xl" style="color: #fb923c; font-size: 1.8rem;"></i>
+                    <h3 class="font-heading" style="font-size: 1.5rem;"><span class="flame-tag">FLAME TECH</span></h3>
+                </div>
+                <p style="margin-top: 10px;">Once your State reaches the required days and unlocks <strong class="text-yellow-400">Helios Troops</strong>, Fire Crystal advancements empower troops further.</p>
+                <div class="flex" style="margin-top: 10px;">
+                    <span class="badge bg-red-600/20 text-red-400"><i class="far fa-clock"></i> UTC 04/27/2026 00:00</span>
+                    <span class="badge bg-blue-500/20 text-blue-400"><i class="fas fa-shield-halved"></i> Eligible States only</span>
+                </div>
+            </div>
+
+            <!-- 2. Icefire Warhymn League -->
+            <div class="update-card" style="border-left: 6px solid #38bdf8;">
+                <div class="flex">
+                    <i class="fas fa-chess-queen text-purple-400" style="font-size: 1.8rem;"></i>
+                    <h3 class="font-heading" style="font-size: 1.5rem;">ICEFIRE WARHYMN</h3>
+                </div>
+                <p>Solo league: Sign-Up → Qualifier → Elimination → Pinnacle. <span class="text-green-400">No troop loss!</span> Permanent Daybreak decorations & glory.</p>
+                <p class="text-sm" style="margin-top: 8px;"><i class="fas fa-chart-line"></i> Match predictions · extra rewards</p>
+            </div>
+
+            <!-- 3. Collection Gallery -->
+            <div class="update-card" style="border-left: 6px solid #a855f7;">
+                <div class="flex">
+                    <i class="fas fa-images text-purple-400"></i>
+                    <h3 class="font-heading" style="font-size: 1.4rem;">COLLECTION GALLERY</h3>
+                </div>
+                <p>Showcase permanent skins · Earn Collection Points · Increase Level → unlock rewards.</p>
+            </div>
+
+            <!-- 4. Mine Leader Kathy -->
+            <div class="update-card" style="border-left: 6px solid #fbbf24;">
+                <div class="flex">
+                    <i class="fas fa-hard-hat text-yellow-400"></i>
+                    <h3 class="font-heading">MINE LEADER KATHY</h3>
+                </div>
+                <p>Courage & leadership for Frostfire Mine. Available in eligible States from <strong>UTC 04/16/2026 00:00</strong>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- divider -->
+    <div class="divider-ice"></div>
+
+    <!-- ⚙️ OPTIMIZATIONS & ADJUSTMENTS -->
+    <section>
+        <div class="flex mb-2">
+            <i class="fas fa-sliders-h text-blue-400"></i>
+            <h2 class="font-heading" style="font-size: 1.9rem;">OPTIMIZATIONS</h2>
+            <span class="badge bg-green-500/20 text-green-400">29+ tweaks</span>
+        </div>
+
+        <!-- Using grid for cleaner reading -->
+        <div class="grid-2" style="gap: 0.8rem;">
+            <!-- group 1 -->
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-brain text-purple-400"></i><span class="font-heading">Dreamscape Memory</span></div>
+                <ul style="margin-left: 1.5rem; color: #cbd5e1; font-size: 0.95rem;">
+                    <li>Recurring event after state age</li>
+                    <li>Adjusted Dream Traveler / Sojourner packs</li>
+                </ul>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-store text-yellow-400"></i><span class="font-heading">Tundra Trading</span></div>
+                <p>Quick-exchange excess Max Star Hero Shards / Max Lvl Exclusive Gear Widgets.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-gem text-blue-400"></i><span class="font-heading">Frostfire Mine</span></div>
+                <p>Reduced max Chiefs per match → better matchmaking & performance.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-user-shield text-red-400"></i><span class="font-heading">Expulsion</span></div>
+                <p>R4 can expel other R4's garrisoned troops.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="far fa-smile text-yellow-400"></i><span class="font-heading">Response Emotes</span></div>
+                <p>Assign Action Emotes to Victory/Defeat/Thanks/Greetings → auto trigger.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-id-card text-blue-400"></i><span class="font-heading">Chief Profile</span></div>
+                <p>Tap avatars in Embassy/Appointment/Alliance War to view profiles.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-industry text-orange-300"></i><span class="font-heading">Furnace Lv.7 Reward</span></div>
+                <p>10 Deployment Recall items · retroactive to backpack.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-flag-checkered text-green-400"></i><span class="font-heading">Fortress Battle</span></div>
+                <p>Cancel sign-up button + reward quick view icon.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-medal text-yellow-400"></i><span class="font-heading">Mercenary Prestige</span></div>
+                <p>Total stages reduced 50 → 25.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-people-arrows text-blue-400"></i><span class="font-heading">Deployment Interface</span></div>
+                <p>Arrival preview · 🟡 hero not in city · 🔴 insufficient troops.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-eye text-purple-400"></i><span class="font-heading">Spectator Mode</span></div>
+                <p>Real-time spectator count added.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-share-alt text-blue-400"></i><span class="font-heading">Sharing</span></div>
+                <p>Improved share screen, search by Chief/group chat.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-dice-d6 text-yellow-400"></i><span class="font-heading">Hero Recruitment</span></div>
+                <p>"Use All" → "Multi Recruit" with free quantity selection.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-bell text-red-400"></i><span class="font-heading">Lighthouse</span></div>
+                <p>24h countdown reminder before Flame and Fangs.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-rocket text-green-400"></i><span class="font-heading">March Speedup</span></div>
+                <p>5 free uses · reduced cooldown · usable on own troops in Alliance War.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-list-check text-blue-400"></i><span class="font-heading">Task List</span></div>
+                <p>Improved Bear Hunt - Trap 2 navigation.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-crown text-yellow-400"></i><span class="font-heading">Positions</span></div>
+                <p style="font-size:0.9rem;">Resign after cooldown · cross-state count · auto-approval adjustment · reservation cooldown shared · Minister of Interior queues.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-gift text-red-400"></i><span class="font-heading">Daily Free Chest</span></div>
+                <p>Rewards updated & upgraded.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-book-open text-purple-400"></i><span class="font-heading">Tundra Album</span></div>
+                <p>Renamed: Tundra Trade Route → Frostwind Track; adjusted order.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-envelope text-blue-400"></i><span class="font-heading">Mail System</span></div>
+                <p>Clearer rankings, scheduler name, legion tally points, auto-hunting expiration.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-tree text-green-400"></i><span class="font-heading">Wilderness</span></div>
+                <p>City view shows reinforcement count.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-users text-yellow-400"></i><span class="font-heading">Alliance</span></div>
+                <p>Rally departure countdown · resource manual input · R5 whitelist.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-fish text-blue-400"></i><span class="font-heading">Fishing Tournament</span></div>
+                <p>Claim all daily missions · auto-adjust treasure attempts.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-dungeon text-purple-400"></i><span class="font-heading">The Labyrinth</span></div>
+                <p>Renamed areas & increased stage caps.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-trophy text-yellow-400"></i><span class="font-heading">Leaderboards</span></div>
+                <p>Improved display · Frostdragon Tyrant expanded to Top 1,000.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-umbrella-beach text-blue-400"></i><span class="font-heading">Daybreak Island</span></div>
+                <p>Bonus overview expandable · decorations listed individually · Dawn Sighs added · Reedwind Soul rename · view other islands.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-ticket-alt text-green-400"></i><span class="font-heading">Lucky Wheel</span></div>
+                <p>Improved UI + one-tap claiming.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-medal text-red-400"></i><span class="font-heading">Alliance Mobilization</span></div>
+                <p>Championship tier names now displayed.</p>
+            </div>
+            <div class="update-card" style="padding: 1rem;">
+                <div class="flex"><i class="fas fa-city text-blue-400"></i><span class="font-heading">City Skin</span></div>
+                <p>Improved visuals on low graphics.</p>
+            </div>
+        </div>
+    </section>
+  
+    <!-- bottom dock (like nav-dock) -->
+    <div class="nav-dock" style="position: fixed; bottom: 0; left: 0; width: 100%; padding: 0.8rem 2rem; display: flex; justify-content: center; align-items: center; z-index: 20; border-top-left-radius: 28px; border-top-right-radius: 28px;">
+    <a href="index.html" style="text-decoration: none;">
+        <div class="inline-flex">
+            <div class="stat-badge bg-blue-500/20" style="cursor: pointer; transition: all 0.3s ease;">
+                <i class="fas fa-home text-blue-400"></i>
+                <span style="color: #e2e8f0;">Home</span>
+            </div>
+        </div>
+    </a>
+</div>
+
+    <!-- tiny spacing -->
+    <div style="height: 20px;"></div>
+    <p class="text-sm" style="text-align: center; opacity: 0.6; margin-top: 1rem;"><i class="far fa-snowflake"></i> If any question or clarification, Don't hesitate to ask in AC or to R4-5 <i class="far fa-snowflake"></i></p>
+</div>
+
+<!-- small script to keep snowflakes clean -->
+<script>
+    (function secondarySnow(){
+        // already done, but we ensure no overflow.
+    })();
+</script>
+</body>
+</html>
+```
