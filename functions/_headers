@@ -1,0 +1,19 @@
+/*.html
+  Cache-Control: no-cache
+
+/*.css
+  Cache-Control: max-age=31536000
+
+/*.js
+  Cache-Control: max-age=31536000
+
+# Service worker must always be revalidated so browsers pick up updates
+# promptly (it also is NOT filename-hashed by build.js, unlike other .js
+# files, since it's registered from a fixed '/sw.js' path).
+/sw.js
+  Cache-Control: no-cache
+
+# Manifest is tiny and rarely changes, but must never be stuck behind a
+# long-lived cache if the calendar/icon set etc. is ever updated.
+/manifest.json
+  Cache-Control: no-cache
