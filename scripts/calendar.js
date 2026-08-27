@@ -10,15 +10,15 @@ const EVENT_CATEGORY_COLORS = {
     svs: { text: "text-red-400", bg: "bg-red-500/20", dot: "bg-red-400" },
     bearhunt: { text: "text-amber-400", bg: "bg-amber-500/20", dot: "bg-amber-400" },
     sunfire_castle: { text: "text-orange-400", bg: "bg-orange-500/20", dot: "bg-orange-400" },
-    crazy_joe: { text: "text-lime-400", bg: "bg-lime-500/20", dot: "bg-lime-400" },
-    alliance_championship: { text: "text-yellow-400", bg: "bg-yellow-500/20", dot: "bg-yellow-400" },
-    alliance_showdown: { text: "text-pink-400", bg: "bg-pink-500/20", dot: "bg-pink-400" },
-    canyon_clash: { text: "text-cyan-400", bg: "bg-cyan-500/20", dot: "bg-cyan-400" },
-    foundry_battle: { text: "text-rose-400", bg: "bg-rose-500/20", dot: "bg-rose-400" },
+    crazy_joe: { text: "text-yellow-400", bg: "bg-yellow-500/20", dot: "bg-yellow-400" },
+    alliance_championship: { text: "text-blue-400", bg: "bg-blue-500/20", dot: "bg-blue-400" },
+    alliance_showdown: { text: "text-blue-400", bg: "bg-blue-500/20", dot: "bg-blue-400" },
+    canyon_clash: { text: "text-white-400", bg: "bg-white-500/20", dot: "bg-white-400" },
+    foundry_battle: { text: "text-cyan-400", bg: "bg-cyan-500/20", dot: "bg-cyan-400" },
     registration: { text: "text-teal-400", bg: "bg-teal-500/20", dot: "bg-teal-400" },
-    mercenary_prestige: { text: "text-indigo-400", bg: "bg-indigo-500/20", dot: "bg-indigo-400" },
+    mercenary_prestige: { text: "text-orange-400", bg: "bg-orange-500/20", dot: "bg-orange-400" },
     alliance_mobilization: { text: "text-emerald-400", bg: "bg-emerald-500/20", dot: "bg-emerald-400" },
-    meeting: { text: "text-green-400", bg: "bg-green-500/20", dot: "bg-green-400" },
+    Brother_In_Arms: { text: "text-red-400", bg: "bg-red-500/20", dot: "bg-red-400" },
     other: { text: "text-purple-400", bg: "bg-purple-500/20", dot: "bg-purple-400" }
 };
 
@@ -35,7 +35,7 @@ const EVENT_CATEGORY_LABELS = {
     registration: "Registration",
     mercenary_prestige: "Mercenary Prestige",
     alliance_mobilization: "Alliance Mobilization",
-    meeting: "Meeting",
+    Brother_In_Arms: "Brother In Arms",
     other: "Other"
 };
 
