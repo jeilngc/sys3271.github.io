@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SYS Alliance</title>
   <link rel="icon" href="img/favicon.ico" type="images/ico">
+    <!-- PWA: installable "app" that opens straight to this site -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="SYS Alliance">
     
 <link rel="stylesheet" href="styles/global.css">
 <link rel="stylesheet" href="styles/achievements.css">
@@ -60,6 +67,9 @@
                 SEE YOU SOONER<span class="text-frost"> ALLIANCE</span>
             </h1>
             <p class="text-xs text-gray-400 italic mt-2 tracking-wider">"Survival is pointless without Unity."</p>
+            <button id="install-app-btn" class="hidden mt-3 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-ice-dark bg-frost hover:bg-frost/90 transition-colors px-4 py-2 rounded-full shadow-lg">
+                <i class="fa-solid fa-download"></i> Install App
+            </button>
         </div>
 
         <!-- Alliance Badge & Stats -->
@@ -335,6 +345,20 @@
         </div>
     </a>
 </div>
+<!-- Floating Calendar Button — always visible, opens the calendar page -->
+<div id="floating-calendar" class="fixed bottom-44 right-4 z-50 cursor-pointer group">
+    <a href="calendar.html" class="block transition-transform hover:scale-110 active:scale-95" aria-label="Open alliance calendar">
+        <div class="relative">
+            <div class="absolute -inset-4 bg-frost/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="relative w-14 h-14 rounded-full border-4 border-frost/50 bg-ice-mid shadow-lg flex items-center justify-center">
+                <i class="fa-solid fa-calendar-days text-frost text-xl"></i>
+            </div>
+            <div id="floating-calendar-badge" class="hidden absolute -top-2 -right-2 w-6 h-6 rounded-full bg-red-500 items-center justify-center">
+                <span class="text-white text-xs font-bold pulse-dot">!</span>
+            </div>
+        </div>
+    </a>
+</div>
 
         <!-- Giftcodes Section -->
 <section id="gift-section">
@@ -424,6 +448,33 @@
         <p>Founded Aug 8, 2025 • Credits: Jei #3271</p>
     </footer>
 
+<!-- iOS "Add to Home Screen" instructions (Safari has no install prompt API) -->
+<div id="ios-install-modal" class="hidden fixed inset-0 z-[70] flex items-end md:items-center justify-center bg-black/70 p-4">
+    <div class="glass-panel border border-frost/30 rounded-2xl p-5 max-w-sm w-full">
+        <div class="flex items-center justify-between mb-3">
+            <h3 class="font-heading text-lg text-white uppercase">Install App</h3>
+            <button id="ios-install-close" class="text-gray-400 hover:text-white p-1" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <p class="text-sm text-gray-300 mb-4">Add SYS Alliance to your Home Screen for quick, app-like access:</p>
+        <ol class="text-sm text-gray-300 space-y-3">
+            <li class="flex items-center gap-3">
+                <span class="shrink-0 w-6 h-6 rounded-full bg-frost/20 text-frost font-bold text-xs flex items-center justify-center">1</span>
+                Tap the <i class="fa-solid fa-arrow-up-from-bracket text-frost mx-1"></i> Share button in Safari
+            </li>
+            <li class="flex items-center gap-3">
+                <span class="shrink-0 w-6 h-6 rounded-full bg-frost/20 text-frost font-bold text-xs flex items-center justify-center">2</span>
+                Scroll down and tap <span class="text-white font-bold">"Add to Home Screen"</span>
+            </li>
+            <li class="flex items-center gap-3">
+                <span class="shrink-0 w-6 h-6 rounded-full bg-frost/20 text-frost font-bold text-xs flex items-center justify-center">3</span>
+                Tap <span class="text-white font-bold">"Add"</span> — the app icon appears on your Home Screen
+            </li>
+        </ol>
+    </div>
+</div>
+
 <!-- Scripts sources -->
 <script src="scripts/utils.js"></script>
 <script src="scripts/announcements.js"></script>
@@ -431,6 +482,8 @@
 <script src="scripts/giftcodes.js"></script>
 <script src="scripts/officers.js"></script>
 <script src="scripts/bearhunt.js"></script>
+<script src="scripts/calendar.js"></script>
+<script src="scripts/pwa.js"></script>
 <script src="scripts/main.js"></script>
 </body>
 </html>

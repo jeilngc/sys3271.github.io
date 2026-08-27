@@ -30,6 +30,16 @@ CREATE TABLE IF NOT EXISTS achievements (
     created_at TEXT DEFAULT (datetime('now'))
 );
 
+CREATE TABLE IF NOT EXISTS events (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    description TEXT,
+    date TEXT NOT NULL,            -- YYYY-MM-DD
+    time TEXT,                     -- free-text label, e.g. "20:00 UTC"
+    category TEXT NOT NULL DEFAULT 'event', -- war|bearhunt|meeting|event|other
+    created_at TEXT DEFAULT (datetime('now'))
+);
+
 CREATE TABLE IF NOT EXISTS officers (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,

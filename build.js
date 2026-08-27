@@ -3,7 +3,9 @@ const crypto = require('crypto');
 const path = require('path');
 
 // Files/folders to ignore
-const ignore = ['build.js', 'node_modules', '.git', '.github', 'functions', 'admin'];
+// sw.js must keep its exact filename/path (registered as navigator.serviceWorker.register('/sw.js')
+// from a plain string in pwa.js, which this script can't rewrite) — hashing it would 404 the service worker.
+const ignore = ['build.js', 'node_modules', '.git', '.github', 'functions', 'admin', 'sw.js'];
 
 // Recursively find all .css and .js files (excluding ignored paths)
 function findFiles(dir, extension, result = []) {

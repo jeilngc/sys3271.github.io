@@ -105,7 +105,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         initGiftCodes(),
         initOfficers(),
         initAnnouncements(),
-        initAchievements()
+        initAchievements(),
+        initCalendar()
     ]);
 
     // Bear hunt live timers

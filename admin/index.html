@@ -72,6 +72,7 @@
     <button class="tab-btn btn btn-secondary" data-tab="announcements">Announcements</button>
     <button class="tab-btn btn btn-secondary" data-tab="achievements">Achievements</button>
     <button class="tab-btn btn btn-secondary" data-tab="officers">Officers</button>
+    <button class="tab-btn btn btn-secondary" data-tab="events">Calendar</button>
   </div>
 
   <!-- GIFT CODES TAB -->
@@ -163,6 +164,32 @@
       </div>
     </form>
     <div id="officer-list" class="space-y-2"></div>
+  </section>
+
+  <!-- CALENDAR / EVENTS TAB -->
+  <section id="tab-events" class="tab-panel space-y-4 hidden">
+    <form id="event-form" class="glass rounded-xl p-4 grid grid-cols-1 md:grid-cols-4 gap-3 items-end">
+      <input type="hidden" id="ev-id">
+      <div class="md:col-span-2"><label>Title</label><input id="ev-title" required></div>
+      <div><label>Date</label><input type="date" id="ev-date" required></div>
+      <div><label>Time (optional label)</label><input id="ev-time" placeholder="e.g. 20:00 UTC"></div>
+      <div>
+        <label>Category</label>
+        <select id="ev-category">
+          <option value="event">Event</option>
+          <option value="war">War</option>
+          <option value="bearhunt">Bear Hunt</option>
+          <option value="meeting">Meeting</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="md:col-span-3"><label>Description (optional)</label><input id="ev-desc"></div>
+      <div class="md:col-span-4 flex gap-2">
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Save Event</button>
+        <button type="button" id="ev-cancel" class="btn btn-secondary hidden">Cancel Edit</button>
+      </div>
+    </form>
+    <div id="event-list" class="space-y-2"></div>
   </section>
 </div>
 

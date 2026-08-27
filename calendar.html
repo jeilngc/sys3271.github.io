@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar · SYS Alliance</title>
+  <link rel="icon" href="img/favicon.ico" type="images/ico">
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="SYS Alliance">
+
+<link rel="stylesheet" href="styles/global.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2f82ad0b57b24774950db4b9d9ad78da"}'></script>
+<!-- End Cloudflare Web Analytics -->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H4BK9E9ZPF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-H4BK9E9ZPF');
+</script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ice-dark': '#0f172a',
+                        'ice-mid': '#1e293b',
+                        'ice-light': '#334155',
+                        'snow': '#e2e8f0',
+                        'frost': '#38bdf8',
+                        'alert': '#ef4444',
+                        'sys-gold': '#fbbf24'
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        heading: ['Oswald', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans antialiased flex flex-col pb-16 min-h-screen">
+
+<!-- Header -->
+<header class="w-full z-50 glass-panel border-b border-gray-700 shadow-lg relative">
+    <div class="max-w-3xl mx-auto px-4 py-5 flex items-center gap-3">
+        <a href="index.html" class="w-9 h-9 rounded-full bg-ice-mid hover:bg-ice-light text-gray-300 hover:text-white flex items-center justify-center transition-colors shrink-0" aria-label="Back to home">
+            <i class="fa-solid fa-arrow-left text-sm"></i>
+        </a>
+        <div>
+            <h1 class="font-heading font-black text-xl md:text-2xl tracking-tight text-white uppercase leading-none">
+                <i class="fa-solid fa-calendar-days text-frost mr-2"></i>Alliance Calendar
+            </h1>
+            <p class="text-[11px] text-gray-400 mt-1">Events, wars &amp; hunts — kept up to date by SYS admins.</p>
+        </div>
+    </div>
+</header>
+
+<main class="flex-grow p-4 w-full max-w-3xl mx-auto z-10 relative mt-4">
+
+    <div class="glass-panel rounded-xl p-4 border border-frost/20">
+        <!-- Month nav -->
+        <div class="flex items-center justify-between mb-4">
+            <button id="cal-prev" class="w-9 h-9 rounded-full bg-ice-mid hover:bg-ice-light text-frost flex items-center justify-center transition-colors" aria-label="Previous month">
+                <i class="fa-solid fa-chevron-left text-xs"></i>
+            </button>
+            <h3 id="cal-month-label" class="font-heading text-white uppercase tracking-wider text-sm"></h3>
+            <button id="cal-next" class="w-9 h-9 rounded-full bg-ice-mid hover:bg-ice-light text-frost flex items-center justify-center transition-colors" aria-label="Next month">
+                <i class="fa-solid fa-chevron-right text-xs"></i>
+            </button>
+        </div>
+
+        <!-- Weekday labels -->
+        <div id="cal-weekdays" class="grid grid-cols-7 gap-1 mb-1 text-center"></div>
+        <!-- Day grid -->
+        <div id="cal-grid" class="grid grid-cols-7 gap-1"></div>
+    </div>
+
+    <!-- Legend -->
+    <div class="flex flex-wrap gap-3 mt-4 px-1">
+        <div class="flex items-center gap-1.5 text-[10px] text-gray-400"><span class="w-2 h-2 rounded-full bg-red-400"></span> War</div>
+        <div class="flex items-center gap-1.5 text-[10px] text-gray-400"><span class="w-2 h-2 rounded-full bg-amber-400"></span> Bear Hunt</div>
+        <div class="flex items-center gap-1.5 text-[10px] text-gray-400"><span class="w-2 h-2 rounded-full bg-green-400"></span> Meeting</div>
+        <div class="flex items-center gap-1.5 text-[10px] text-gray-400"><span class="w-2 h-2 rounded-full bg-frost"></span> Event</div>
+        <div class="flex items-center gap-1.5 text-[10px] text-gray-400"><span class="w-2 h-2 rounded-full bg-purple-400"></span> Other</div>
+    </div>
+
+    <!-- Selected day / upcoming events list -->
+    <div class="mt-6">
+        <h4 id="cal-list-label" class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Upcoming Events</h4>
+        <div id="cal-event-list" class="space-y-2"></div>
+    </div>
+
+</main>
+
+    <footer class="text-center py-6 text-gray-600 text-[10px] relative z-10">
+        <p>Founded Aug 8, 2025 • Credits: Jei #3271</p>
+    </footer>
+
+<!-- Scripts -->
+<script src="scripts/calendar.js"></script>
+<script src="scripts/pwa.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        initCalendar();
+    });
+</script>
+</body>
+</html>

@@ -65,6 +65,7 @@ function loadAllTabs() {
     loadAnnouncementsAdmin();
     loadAchievementsAdmin();
     loadOfficersAdmin();
+    loadEventsAdmin();
 }
 
 // ---------- Shared helpers ----------
@@ -323,6 +324,68 @@ async function deleteOfficer(id) {
     if (!confirm('Delete this officer?')) return;
     await apiFetch(`/api/officers/${id}`, { method: 'DELETE' });
     loadOfficersAdmin();
+}
+
+// ============================================
+// EVENTS (in-site calendar)
+// ============================================
+const evForm = document.getElementById('event-form');
+const evCancelBtn = document.getElementById('ev-cancel');
+
+async function loadEventsAdmin() {
+    const res = await apiFetch('/api/events');
+    const items = await res.json();
+    const list = document.getElementById('event-list');
+    list.innerHTML = items.map(ev => `
+        <div class="row-card flex items-start justify-between gap-3">
+            <div class="flex-grow">
+                <p class="font-bold text-white text-sm">${ev.title} <span class="text-[10px] text-gray-500 uppercase ml-1">${ev.category}</span></p>
+                <p class="text-xs text-gray-400">${ev.description || ''}</p>
+                ${rowMeta(ev.date)} ${ev.time ? `<span class="text-[10px] text-gray-500 ml-2">${ev.time}</span>` : ''}
+            </div>
+            <div class="flex gap-2 shrink-0">
+                <button class="btn btn-secondary" onclick='editEvent(${JSON.stringify(ev)})'><i class="fa-solid fa-pen"></i></button>
+                <button class="btn btn-danger" onclick="deleteEvent(${ev.id})"><i class="fa-solid fa-trash"></i></button>
+            </div>
+        </div>
+    `).join('') || `<p class="text-gray-500 text-sm">No events yet.</p>`;
+}
+
+function editEvent(ev) {
+    document.getElementById('ev-id').value = ev.id;
+    document.getElementById('ev-title').value = ev.title;
+    document.getElementById('ev-date').value = ev.date;
+    document.getElementById('ev-time').value = ev.time || '';
+    document.getElementById('ev-category').value = ev.category || 'event';
+    document.getElementById('ev-desc').value = ev.description || '';
+    evCancelBtn.classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+evCancelBtn.addEventListener('click', () => { evForm.reset(); document.getElementById('ev-id').value=''; evCancelBtn.classList.add('hidden'); });
+
+evForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const id = document.getElementById('ev-id').value;
+    const payload = {
+        title: document.getElementById('ev-title').value.trim(),
+        date: document.getElementById('ev-date').value,
+        time: document.getElementById('ev-time').value.trim(),
+        category: document.getElementById('ev-category').value,
+        description: document.getElementById('ev-desc').value.trim()
+    };
+    const url = id ? `/api/events/${id}` : '/api/events';
+    const method = id ? 'PUT' : 'POST';
+    const res = await apiFetch(url, { method, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+    if (!res.ok) { const err = await res.json(); alert(err.error || 'Failed to save'); return; }
+    evForm.reset(); document.getElementById('ev-id').value=''; evCancelBtn.classList.add('hidden');
+    loadEventsAdmin();
+});
+
+async function deleteEvent(id) {
+    if (!confirm('Delete this event?')) return;
+    await apiFetch(`/api/events/${id}`, { method: 'DELETE' });
+    loadEventsAdmin();
 }
 
 // ---------- Init ----------
