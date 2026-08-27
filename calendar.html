@@ -91,14 +91,8 @@
         <div id="cal-grid" class="grid grid-cols-7 gap-1"></div>
     </div>
 
-    <!-- Legend -->
-    <div class="flex flex-wrap gap-3 mt-4 px-1">
-        <div class="flex items-center gap-1.5 text-[10px] text-gray-400"><span class="w-2 h-2 rounded-full bg-red-400"></span> War</div>
-        <div class="flex items-center gap-1.5 text-[10px] text-gray-400"><span class="w-2 h-2 rounded-full bg-amber-400"></span> Bear Hunt</div>
-        <div class="flex items-center gap-1.5 text-[10px] text-gray-400"><span class="w-2 h-2 rounded-full bg-green-400"></span> Meeting</div>
-        <div class="flex items-center gap-1.5 text-[10px] text-gray-400"><span class="w-2 h-2 rounded-full bg-frost"></span> Event</div>
-        <div class="flex items-center gap-1.5 text-[10px] text-gray-400"><span class="w-2 h-2 rounded-full bg-purple-400"></span> Other</div>
-    </div>
+    <!-- Legend — populated dynamically from categories actually in use -->
+    <div id="cal-legend" class="flex flex-wrap gap-3 mt-4 px-1"></div>
 
     <!-- Selected day / upcoming events list -->
     <div class="mt-6">

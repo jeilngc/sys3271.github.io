@@ -6,12 +6,42 @@ let calViewDate = new Date(); // month currently being viewed
 let calSelectedDate = null;   // 'YYYY-MM-DD' or null (null = show upcoming list)
 
 const EVENT_CATEGORY_COLORS = {
-    war: { text: "text-red-400", bg: "bg-red-500/20", dot: "bg-red-400" },
-    bearhunt: { text: "text-amber-400", bg: "bg-amber-500/20", dot: "bg-amber-400" },
-    meeting: { text: "text-green-400", bg: "bg-green-500/20", dot: "bg-green-400" },
     event: { text: "text-frost", bg: "bg-frost/20", dot: "bg-frost" },
+    svs: { text: "text-red-400", bg: "bg-red-500/20", dot: "bg-red-400" },
+    bearhunt: { text: "text-amber-400", bg: "bg-amber-500/20", dot: "bg-amber-400" },
+    sunfire_castle: { text: "text-orange-400", bg: "bg-orange-500/20", dot: "bg-orange-400" },
+    crazy_joe: { text: "text-lime-400", bg: "bg-lime-500/20", dot: "bg-lime-400" },
+    alliance_championship: { text: "text-yellow-400", bg: "bg-yellow-500/20", dot: "bg-yellow-400" },
+    alliance_showdown: { text: "text-pink-400", bg: "bg-pink-500/20", dot: "bg-pink-400" },
+    canyon_clash: { text: "text-cyan-400", bg: "bg-cyan-500/20", dot: "bg-cyan-400" },
+    foundry_battle: { text: "text-rose-400", bg: "bg-rose-500/20", dot: "bg-rose-400" },
+    registration: { text: "text-teal-400", bg: "bg-teal-500/20", dot: "bg-teal-400" },
+    mercenary_prestige: { text: "text-indigo-400", bg: "bg-indigo-500/20", dot: "bg-indigo-400" },
+    alliance_mobilization: { text: "text-emerald-400", bg: "bg-emerald-500/20", dot: "bg-emerald-400" },
+    meeting: { text: "text-green-400", bg: "bg-green-500/20", dot: "bg-green-400" },
     other: { text: "text-purple-400", bg: "bg-purple-500/20", dot: "bg-purple-400" }
 };
+
+const EVENT_CATEGORY_LABELS = {
+    event: "Event",
+    svs: "SVS",
+    bearhunt: "Bear Hunt",
+    sunfire_castle: "Sunfire Castle",
+    crazy_joe: "Crazy Joe",
+    alliance_championship: "Alliance Championship",
+    alliance_showdown: "Alliance Showdown",
+    canyon_clash: "Canyon Clash",
+    foundry_battle: "Foundry Battle",
+    registration: "Registration",
+    mercenary_prestige: "Mercenary Prestige",
+    alliance_mobilization: "Alliance Mobilization",
+    meeting: "Meeting",
+    other: "Other"
+};
+
+function catLabel(category) {
+    return EVENT_CATEGORY_LABELS[category] || (category ? category.replace(/_/g, ' ') : "Event");
+}
 
 function catColor(category) {
     return EVENT_CATEGORY_COLORS[category] || EVENT_CATEGORY_COLORS.event;
@@ -114,7 +144,7 @@ function eventCardHTML(ev) {
                     <p class="text-sm font-bold text-white">${ev.title}</p>
                     ${ev.description ? `<p class="text-xs text-gray-400 mt-0.5">${ev.description}</p>` : ''}
                 </div>
-                <span class="text-[9px] px-2 py-0.5 rounded-full ${colors.bg} ${colors.text} font-bold uppercase shrink-0">${ev.category}</span>
+                <span class="text-[9px] px-2 py-0.5 rounded-full ${colors.bg} ${colors.text} font-bold uppercase shrink-0">${catLabel(ev.category)}</span>
             </div>
             <div class="flex items-center gap-2 mt-2 text-[10px] text-gray-500">
                 <i class="fa-solid fa-calendar"></i>
@@ -177,10 +207,31 @@ function setupFloatingCalendarBadge() {
     }
 }
 
+function renderLegend() {
+    const legend = document.getElementById('cal-legend');
+    if (!legend) return; // not present on index.html, only calendar.html
+
+    const usedCats = [...new Set(EVENTS.map(e => e.category))]
+        .sort((a, b) => catLabel(a).localeCompare(catLabel(b)));
+
+    if (!usedCats.length) {
+        legend.innerHTML = `<p class="text-[10px] text-gray-500">No events yet — add one from the admin panel.</p>`;
+        return;
+    }
+
+    legend.innerHTML = usedCats.map(cat => {
+        const colors = catColor(cat);
+        return `<div class="flex items-center gap-1.5 text-[10px] text-gray-400">
+            <span class="w-2 h-2 rounded-full ${colors.dot}"></span> ${catLabel(cat)}
+        </div>`;
+    }).join('');
+}
+
 async function initCalendar() {
     await fetchEvents();
     renderCalendarGrid();
     renderEventList();
+    renderLegend();
     setupCalendarNav();
     setupFloatingCalendarBadge();
 }
