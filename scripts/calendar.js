@@ -13,7 +13,7 @@ const EVENT_CATEGORY_COLORS = {
 };
 
 const EVENT_CATEGORY_LABELS = {
-    event: "Event",
+    event: "Alliance Event",
     svs: "SVS",
     sunfire_castle: "Sunfire Castle",
     other: "Other"
