@@ -76,10 +76,13 @@ function renderCalendarGrid() {
         const dayEvents = eventsOnDate(dateStr);
         const isToday = dateStr === today;
         const isSelected = dateStr === calSelectedDate;
+        const isBattleDay = dayEvents.some(e => e.highlight);
 
         let btnClasses = "aspect-square w-full rounded-lg flex flex-col items-center justify-center text-xs font-bold transition-colors relative";
         if (isSelected) {
             btnClasses += " bg-frost text-ice-dark";
+        } else if (isBattleDay) {
+            btnClasses += " bg-sys-gold/20 text-sys-gold border-2 border-sys-gold shadow-[0_0_10px_rgba(251,191,36,0.55)]";
         } else if (isToday) {
             btnClasses += " bg-frost/20 text-frost border border-frost/50";
         } else {
@@ -92,7 +95,12 @@ function renderCalendarGrid() {
             dots = `<div class="flex gap-0.5 mt-0.5">${uniqueCats.map(c => `<span class="w-1 h-1 rounded-full ${catColor(c).dot}"></span>`).join('')}</div>`;
         }
 
+        const star = isBattleDay && !isSelected
+            ? `<i class="fa-solid fa-star absolute top-0.5 right-0.5 text-[7px] text-sys-gold"></i>`
+            : '';
+
         cells += `<button type="button" class="${btnClasses}" data-date="${dateStr}">
+            ${star}
             <span>${day}</span>
             ${dots}
         </button>`;
@@ -117,14 +125,21 @@ function formatDateLabel(dateStr) {
 
 function eventCardHTML(ev) {
     const colors = catColor(ev.category);
+    const borderClass = ev.highlight ? 'border-sys-gold' : colors.text.replace('text-', 'border-');
+    const cardExtra = ev.highlight ? ' shadow-[0_0_10px_rgba(251,191,36,0.25)]' : '';
     return `
-        <div class="row-card-frontend bg-ice-mid/50 border-l-4 ${colors.text.replace('text-', 'border-')} rounded-r-lg p-3">
+        <div class="row-card-frontend bg-ice-mid/50 border-l-4 ${borderClass} rounded-r-lg p-3${cardExtra}">
             <div class="flex items-start justify-between gap-2">
                 <div>
-                    <p class="text-sm font-bold text-white">${ev.title}</p>
+                    <p class="text-sm font-bold text-white">
+                        ${ev.highlight ? `<i class="fa-solid fa-star text-sys-gold mr-1"></i>` : ''}${ev.title}
+                    </p>
                     ${ev.description ? `<p class="text-xs text-gray-400 mt-0.5">${ev.description}</p>` : ''}
                 </div>
-                <span class="text-[9px] px-2 py-0.5 rounded-full ${colors.bg} ${colors.text} font-bold uppercase shrink-0">${catLabel(ev.category)}</span>
+                <div class="flex flex-col items-end gap-1 shrink-0">
+                    <span class="text-[9px] px-2 py-0.5 rounded-full ${colors.bg} ${colors.text} font-bold uppercase">${catLabel(ev.category)}</span>
+                    ${ev.highlight ? `<span class="text-[9px] px-2 py-0.5 rounded-full bg-sys-gold/20 text-sys-gold font-bold uppercase">Battle Day</span>` : ''}
+                </div>
             </div>
             <div class="flex items-center gap-2 mt-2 text-[10px] text-gray-500">
                 <i class="fa-solid fa-calendar"></i>
@@ -199,12 +214,20 @@ function renderLegend() {
         return;
     }
 
-    legend.innerHTML = usedCats.map(cat => {
+    let html = usedCats.map(cat => {
         const colors = catColor(cat);
         return `<div class="flex items-center gap-1.5 text-[10px] text-gray-400">
             <span class="w-2 h-2 rounded-full ${colors.dot}"></span> ${catLabel(cat)}
         </div>`;
     }).join('');
+
+    if (EVENTS.some(e => e.highlight)) {
+        html += `<div class="flex items-center gap-1.5 text-[10px] text-gray-400">
+            <i class="fa-solid fa-star text-sys-gold text-[9px]"></i> Battle Day
+        </div>`;
+    }
+
+    legend.innerHTML = html;
 }
 
 async function initCalendar() {

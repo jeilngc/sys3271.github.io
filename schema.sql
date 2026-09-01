@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS events (
     date TEXT NOT NULL,            -- YYYY-MM-DD
     time TEXT,                     -- free-text label, e.g. "20:00 UTC"
     category TEXT NOT NULL DEFAULT 'event', -- war|bearhunt|meeting|event|other
+    highlight INTEGER DEFAULT 0,   -- 0/1, mark as a key day (e.g. Battle Day) for extra calendar emphasis
     created_at TEXT DEFAULT (datetime('now'))
 );
 

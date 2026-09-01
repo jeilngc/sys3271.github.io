@@ -339,7 +339,7 @@ async function loadEventsAdmin() {
     list.innerHTML = items.map(ev => `
         <div class="row-card flex items-start justify-between gap-3">
             <div class="flex-grow">
-                <p class="font-bold text-white text-sm">${ev.title} <span class="text-[10px] text-gray-500 uppercase ml-1">${ev.category}</span></p>
+                <p class="font-bold text-white text-sm">${ev.title} <span class="text-[10px] text-gray-500 uppercase ml-1">${ev.category}</span> ${ev.highlight ? `<span class="text-[10px] text-yellow-400 uppercase ml-1"><i class="fa-solid fa-star"></i> Battle Day</span>` : ''}</p>
                 <p class="text-xs text-gray-400">${ev.description || ''}</p>
                 ${rowMeta(ev.date)} ${ev.time ? `<span class="text-[10px] text-gray-500 ml-2">${ev.time}</span>` : ''}
             </div>
@@ -358,6 +358,7 @@ function editEvent(ev) {
     document.getElementById('ev-time').value = ev.time || '';
     document.getElementById('ev-category').value = ev.category || 'event';
     document.getElementById('ev-desc').value = ev.description || '';
+    document.getElementById('ev-highlight').checked = !!ev.highlight;
     evCancelBtn.classList.remove('hidden');
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -372,13 +373,14 @@ evForm.addEventListener('submit', async (e) => {
         date: document.getElementById('ev-date').value,
         time: document.getElementById('ev-time').value.trim(),
         category: document.getElementById('ev-category').value,
-        description: document.getElementById('ev-desc').value.trim()
+        description: document.getElementById('ev-desc').value.trim(),
+        highlight: document.getElementById('ev-highlight').checked
     };
     const url = id ? `/api/events/${id}` : '/api/events';
     const method = id ? 'PUT' : 'POST';
     const res = await apiFetch(url, { method, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
     if (!res.ok) { const err = await res.json(); alert(err.error || 'Failed to save'); return; }
-    evForm.reset(); document.getElementById('ev-id').value=''; evCancelBtn.classList.add('hidden');
+    evForm.reset(); document.getElementById('ev-id').value=''; document.getElementById('ev-highlight').checked = false; evCancelBtn.classList.add('hidden');
     loadEventsAdmin();
 });
 

@@ -12,17 +12,17 @@ export async function onRequestPut({ request, env, params }) {
         return errorResponse("Invalid JSON body", 400);
     }
 
-    const { title, description, date, time, category } = body || {};
+    const { title, description, date, time, category, highlight } = body || {};
     if (!title || !date) {
         return errorResponse("title and date are required", 400);
     }
 
     await env.DB.prepare(
         `UPDATE events
-         SET title = ?, description = ?, date = ?, time = ?, category = ?
+         SET title = ?, description = ?, date = ?, time = ?, category = ?, highlight = ?
          WHERE id = ?`
     ).bind(
-        title, description || "", date, time || "", category || "event", params.id
+        title, description || "", date, time || "", category || "event", highlight ? 1 : 0, params.id
     ).run();
 
     return json({ ok: true });

@@ -3,7 +3,7 @@ import { json, errorResponse } from "../../_lib/response.js";
 
 export async function onRequestGet({ env }) {
     const { results } = await env.DB.prepare(
-        `SELECT id, title, description, date, time, category
+        `SELECT id, title, description, date, time, category, highlight
          FROM events ORDER BY date ASC, id ASC`
     ).all();
     return json(results);
@@ -20,16 +20,16 @@ export async function onRequestPost({ request, env }) {
         return errorResponse("Invalid JSON body", 400);
     }
 
-    const { title, description, date, time, category } = body || {};
+    const { title, description, date, time, category, highlight } = body || {};
     if (!title || !date) {
         return errorResponse("title and date are required", 400);
     }
 
     const result = await env.DB.prepare(
-        `INSERT INTO events (title, description, date, time, category)
-         VALUES (?, ?, ?, ?, ?)`
+        `INSERT INTO events (title, description, date, time, category, highlight)
+         VALUES (?, ?, ?, ?, ?, ?)`
     ).bind(
-        title, description || "", date, time || "", category || "event"
+        title, description || "", date, time || "", category || "event", highlight ? 1 : 0
     ).run();
 
     return json({ id: result.meta.last_row_id }, 201);
